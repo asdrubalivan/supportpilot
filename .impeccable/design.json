@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T16:14:35+00:00",
+  "title": "Design System: Old Pages Books Help Desk (SupportPilot)",
+  "extensions": {
+    "colorMeta": {
+      "buckram": {
+        "role": "primary",
+        "displayName": "Library Buckram",
+        "canonical": "oklch(30.2% 0.041 170)",
+        "tonalRamp": [
+          "#060d0a",
+          "#1a2923",
+          "#30483f",
+          "#4a695d",
+          "#6a8b7e",
+          "#91aca2",
+          "#bbcec7",
+          "#e7f1ed"
+        ]
+      },
+      "buckram-deep": {
+        "role": "primary",
+        "displayName": "Deep Buckram",
+        "canonical": "oklch(24.8% 0.031 171)",
+        "tonalRamp": [
+          "#070d0b",
+          "#1c2824",
+          "#344740",
+          "#50675f",
+          "#708980",
+          "#96aba3",
+          "#becdc7",
+          "#e8f1ed"
+        ]
+      },
+      "buckram-ink": {
+        "role": "primary",
+        "displayName": "Buckram Ink",
+        "canonical": "oklch(90.8% 0.016 154)",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#222623",
+          "#3d443f",
+          "#5b645d",
+          "#7b857e",
+          "#9fa8a1",
+          "#c5cbc6",
+          "#ecefed"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Blocking Gold",
+        "canonical": "oklch(77.0% 0.125 89)",
+        "tonalRamp": [
+          "#120a00",
+          "#332200",
+          "#583d00",
+          "#7d5c00",
+          "#a07d00",
+          "#bfa255",
+          "#dbc895",
+          "#f9eed2"
+        ]
+      },
+      "gold-soft": {
+        "role": "secondary",
+        "displayName": "Soft Gold",
+        "canonical": "oklch(85.9% 0.096 91)",
+        "tonalRamp": [
+          "#100a00",
+          "#2f2400",
+          "#514000",
+          "#755e0c",
+          "#988037",
+          "#b7a46b",
+          "#d6c9a1",
+          "#f6eed8"
+        ]
+      },
+      "cloth-returns": {
+        "role": "tertiary",
+        "displayName": "Returns Oxblood",
+        "canonical": "oklch(39.1% 0.125 18)",
+        "tonalRamp": [
+          "#180406",
+          "#411418",
+          "#6e262d",
+          "#9b3e46",
+          "#c16066",
+          "#de8a8d",
+          "#f4b7b8",
+          "#ffe5e5"
+        ]
+      },
+      "cloth-shipping": {
+        "role": "tertiary",
+        "displayName": "Shipping Navy",
+        "canonical": "oklch(31.5% 0.081 265)",
+        "tonalRamp": [
+          "#060b16",
+          "#1a243b",
+          "#314165",
+          "#4b608f",
+          "#6b82b3",
+          "#91a5cf",
+          "#bbc9e8",
+          "#e6efff"
+        ]
+      },
+      "cloth-promotions": {
+        "role": "tertiary",
+        "displayName": "Promotions Mustard",
+        "canonical": "oklch(70.3% 0.131 82)",
+        "tonalRamp": [
+          "#140900",
+          "#372000",
+          "#5e3a00",
+          "#865700",
+          "#a97900",
+          "#c79e50",
+          "#e2c592",
+          "#fdecd0"
+        ]
+      },
+      "cloth-catalog": {
+        "role": "tertiary",
+        "displayName": "Catalog Plum",
+        "canonical": "oklch(38.5% 0.092 314)",
+        "tonalRamp": [
+          "#0f0714",
+          "#2e1d37",
+          "#50355e",
+          "#745186",
+          "#9672a9",
+          "#b697c7",
+          "#d5c0e2",
+          "#f5e9fd"
+        ]
+      },
+      "linen": {
+        "role": "neutral",
+        "displayName": "Linen",
+        "canonical": "oklch(91.1% 0.010 131)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242623",
+          "#40433e",
+          "#5f625c",
+          "#80847d",
+          "#a3a6a1",
+          "#c8cac6",
+          "#eeefed"
+        ]
+      },
+      "linen-deep": {
+        "role": "neutral",
+        "displayName": "Deep Linen",
+        "canonical": "oklch(86.6% 0.014 135)",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#232622",
+          "#3f433d",
+          "#5e635b",
+          "#7f847c",
+          "#a2a7a0",
+          "#c7cac5",
+          "#edefec"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(97.5% 0.004 122)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424240",
+          "#61625f",
+          "#828380",
+          "#a4a5a3",
+          "#c9c9c8",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(25.0% 0.015 166)",
+        "tonalRamp": [
+          "#090c0b",
+          "#212624",
+          "#3c4440",
+          "#5a645f",
+          "#7a8580",
+          "#9ea8a3",
+          "#c4cbc8",
+          "#ecefee"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(42.6% 0.018 164)",
+        "tonalRamp": [
+          "#090c0a",
+          "#212724",
+          "#3b4540",
+          "#58655e",
+          "#79867f",
+          "#9da8a2",
+          "#c3cbc7",
+          "#ebf0ed"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(80.4% 0.016 145)",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#222622",
+          "#3e443e",
+          "#5c645c",
+          "#7d857d",
+          "#a0a7a0",
+          "#c6cbc6",
+          "#ecefec"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Store name in gold on the rail only (wdth 112)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The single page heading over the question column."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Opened passage heading; empty and error state headings."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "The agent's answer, max 68ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All other running text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase condensed section headings and rail labels."
+      },
+      "call-number": {
+        "displayName": "Call Number",
+        "purpose": "Inline citation ranks, customer card numbers, spine stamps; tabular."
+      },
+      "spine-title": {
+        "displayName": "Spine Title",
+        "purpose": "Vertical uppercase section names on spines (wdth 62)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "board",
+        "value": "0 6px 10px -6px rgb(16 38 31 / 0.6)",
+        "purpose": "Under the shelf board only."
+      },
+      {
+        "name": "cloth-bevel",
+        "value": "inset 4px 0 0 rgb(255 255 255 / 0.08), inset -4px 0 0 rgb(0 0 0 / 0.18)",
+        "purpose": "Every spine at rest."
+      },
+      {
+        "name": "seated-forward",
+        "value": "inset 4px 0 0 rgb(255 255 255 / 0.1), inset -4px 0 0 rgb(0 0 0 / 0.2), 0 10px 14px -8px rgb(16 38 31 / 0.55)",
+        "purpose": "Cited spines."
+      },
+      {
+        "name": "field-halo",
+        "value": "0 0 0 3px rgb(23 53 43 / 0.15)",
+        "purpose": "Question form on focus-within."
+      },
+      {
+        "name": "call-ring",
+        "value": "0 0 0 2px var(--paper), 0 0 0 3px var(--cloth)",
+        "purpose": "Call number on hover or when its passage is open."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "House curve for every state transition (150-300ms)."
+      },
+      {
+        "name": "shelve",
+        "value": "700ms ease-out, from translateX(1.5rem)",
+        "purpose": "Spines sliding onto the shelf on arrival."
+      },
+      {
+        "name": "ghost",
+        "value": "1.4s ease-in-out infinite, linen-deep to rule",
+        "purpose": "Loading spines, staggered 120ms."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition none",
+        "purpose": "All motion removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "single-column",
+        "value": "52rem"
+      },
+      {
+        "name": "one-up-cards",
+        "value": "26rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ask Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action: buckram cloth with a soft-gold label and arrow.",
+      "html": "<button class=\"ds-ask\">Ask <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-ask{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.15rem;border:0;border-radius:3px;background:var(--buckram);color:var(--gold-soft);font-family:var(--font);font-weight:700;letter-spacing:.01em;cursor:pointer;transition:background 200ms var(--ease-out),transform 200ms var(--ease-out)}.ds-ask:hover{background:var(--buckram-deep)}.ds-ask:active{transform:translateY(1px)}.ds-ask:focus-visible{outline:3px solid var(--gold);outline-offset:2px}"
+    },
+    {
+      "name": "Library Card",
+      "kind": "chip",
+      "refersTo": "library-card",
+      "description": "Customer switcher on the rail; radio-group cards with a condensed tabular number.",
+      "html": "<div class=\"ds-rail-demo\"><button class=\"ds-card\" aria-checked=\"true\"><span class=\"ds-card-no\">No. 1</span><span>Ada Reader</span></button><button class=\"ds-card\" aria-checked=\"false\"><span class=\"ds-card-no\">No. 2</span><span>Basil Bookworm</span></button></div>",
+      "css": ".ds-rail-demo{display:flex;gap:.5rem;padding:.9rem 1rem;background:var(--buckram)}.ds-card{display:flex;align-items:baseline;gap:.5rem;padding:.4rem .8rem;border-radius:3px;border:1px solid rgb(217 228 220 / .25);background:transparent;color:var(--buckram-ink);font-family:var(--font);font-weight:600;cursor:pointer;transition:background 200ms var(--ease-out),border-color 200ms var(--ease-out)}.ds-card:hover{border-color:rgb(212 176 76 / .6)}.ds-card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.ds-card[aria-checked=\"true\"]{background:#24493c;border-color:var(--gold);color:#fff}.ds-card-no{font-size:.75rem;font-weight:700;font-stretch:75%;font-variant-numeric:tabular-nums;color:#a9bcb0}.ds-card[aria-checked=\"true\"] .ds-card-no{color:var(--gold)}"
+    },
+    {
+      "name": "Question Field",
+      "kind": "input",
+      "refersTo": "question-field",
+      "description": "Paper panel holding a borderless textarea and an action bar; focus lights the whole form.",
+      "html": "<form class=\"ds-ask-form\"><textarea rows=\"3\" placeholder=\"Ask about returns, shipping, promotions, or your orders\"></textarea><div class=\"ds-ask-actions\"><span>Ctrl + Enter to ask</span></div></form>",
+      "css": ".ds-ask-form{background:var(--paper);border:1px solid var(--rule);border-radius:4px;transition:border-color 200ms var(--ease-out),box-shadow 200ms var(--ease-out)}.ds-ask-form:focus-within{border-color:var(--buckram);box-shadow:0 0 0 3px rgb(23 53 43 / .15)}.ds-ask-form textarea{display:block;width:100%;border:0;background:transparent;resize:vertical;padding:1rem;font:inherit;font-family:var(--font);color:var(--ink);caret-color:var(--cloth-returns)}.ds-ask-form textarea:focus-visible{outline:none}.ds-ask-form textarea::placeholder{color:#6b766f}.ds-ask-actions{padding:.5rem 1rem;border-top:1px solid var(--linen-deep);font-size:.8rem;color:#5e6a63}"
+    },
+    {
+      "name": "Rail",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "The buckram cover: gold display store name, condensed desk label.",
+      "html": "<header class=\"ds-rail\"><span class=\"ds-brand\">Old Pages Books</span><span class=\"ds-desk\">Help desk</span></header>",
+      "css": ".ds-rail{display:flex;align-items:baseline;gap:.9rem;padding:.9rem 1.5rem;background:var(--buckram);color:var(--buckram-ink);border-bottom:3px solid var(--buckram-deep);font-family:var(--font)}.ds-brand{font-size:1.35rem;font-weight:800;font-stretch:112%;letter-spacing:-.01em;color:var(--gold)}.ds-desk{font-size:.85rem;font-weight:600;font-stretch:75%;text-transform:uppercase;letter-spacing:.12em;padding-left:.9rem;border-left:1px solid rgb(212 176 76 / .45)}"
+    },
+    {
+      "name": "Answer Panel",
+      "kind": "card",
+      "refersTo": "answer-panel",
+      "description": "Flat paper working panel on the linen ground; answer text at body-large.",
+      "html": "<section class=\"ds-panel\"><p class=\"ds-answer\">Returns are accepted within 30 days of delivery.</p></section>",
+      "css": ".ds-panel{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:clamp(1.25rem,3vw,2.25rem);font-family:var(--font);color:var(--ink)}.ds-answer{margin:0;font-size:1.2rem;line-height:1.6;max-width:68ch}"
+    },
+    {
+      "name": "Call Number",
+      "kind": "custom",
+      "refersTo": "call-number",
+      "description": "Inline citation: a stamped rank number in its document's cloth; outlined oxblood '?' when unverified.",
+      "html": "<p class=\"ds-cn-line\">Refunds take 5 days <button class=\"ds-cn ds-cloth-returns\">1</button>, shipping is free over $40 <button class=\"ds-cn ds-cloth-shipping\">2</button>, signed copies are excluded <button class=\"ds-cn ds-cloth-promotions ds-dark\">3</button> <button class=\"ds-cn ds-invalid\">?</button></p>",
+      "css": ".ds-cn-line{font-family:var(--font);font-size:1.2rem;color:var(--ink);background:var(--paper);padding:1rem}.ds-cloth-returns{--cloth:var(--cloth-returns)}.ds-cloth-shipping{--cloth:var(--cloth-shipping)}.ds-cloth-promotions{--cloth:var(--cloth-promotions)}.ds-cloth-catalog{--cloth:var(--cloth-catalog)}.ds-cn{display:inline-flex;align-items:center;justify-content:center;min-width:1.45em;height:1.45em;margin:0 .15rem;padding:0 .3em;vertical-align:.12em;border:0;border-radius:2px;font-family:var(--font);font-size:.75rem;font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums;color:#fff;background:var(--cloth);cursor:pointer;transition:box-shadow 200ms var(--ease-out)}.ds-cn.ds-dark{color:#1b1406}.ds-cn:hover:not(.ds-invalid){box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--cloth)}.ds-cn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.ds-cn.ds-invalid{background:transparent;color:var(--cloth-returns);box-shadow:inset 0 0 0 1px currentColor;cursor:help}"
+    },
+    {
+      "name": "Shelf of Spines",
+      "kind": "custom",
+      "refersTo": "spine",
+      "description": "Retrieved passages as spines on one board, height by rank; cited spines full cloth with gold headband, uncited faded, opened hangs a ribbon.",
+      "html": "<div class=\"ds-shelf\"><button class=\"ds-spine ds-cloth-promotions ds-dark ds-cited ds-open\" style=\"height:100%\"><span class=\"ds-spine-title\">Exclusions</span><span class=\"ds-spine-call\">1</span></button><button class=\"ds-spine ds-cloth-catalog\" style=\"height:92%\"><span class=\"ds-spine-title\">Signed copies</span><span class=\"ds-spine-call\">2</span></button><button class=\"ds-spine ds-cloth-returns\" style=\"height:85%\"><span class=\"ds-spine-title\">Refunds</span><span class=\"ds-spine-call\">3</span></button><button class=\"ds-spine ds-cloth-shipping\" style=\"height:79%\"><span class=\"ds-spine-title\">Rates</span><span class=\"ds-spine-call\">4</span></button><div class=\"ds-board\"></div></div>",
+      "css": ".ds-cloth-returns{--cloth:var(--cloth-returns)}.ds-cloth-shipping{--cloth:var(--cloth-shipping)}.ds-cloth-promotions{--cloth:var(--cloth-promotions)}.ds-cloth-catalog{--cloth:var(--cloth-catalog)}.ds-shelf{position:relative;height:16rem;display:flex;align-items:flex-end;gap:.35rem;padding:0 .75rem;margin:1rem 0 2.5rem;font-family:var(--font)}.ds-board{position:absolute;left:0;right:0;bottom:-.6rem;height:.6rem;background:var(--buckram);border-radius:0 0 2px 2px;box-shadow:0 6px 10px -6px rgb(16 38 31 / .6)}.ds-spine{position:relative;width:4rem;border:0;border-radius:3px 3px 0 0;padding:1.2rem 0 .5rem;background:var(--cloth);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;box-shadow:inset 4px 0 0 rgb(255 255 255 / .08),inset -4px 0 0 rgb(0 0 0 / .18);z-index:1;cursor:pointer;transition:transform 300ms var(--ease-out),box-shadow 300ms var(--ease-out),filter 300ms var(--ease-out)}.ds-spine.ds-dark{color:#1b1406}.ds-spine:not(.ds-cited){filter:saturate(.5) brightness(1.06)}.ds-spine:hover{filter:none}.ds-spine:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.ds-spine.ds-cited{margin-bottom:-.3rem;padding-bottom:.8rem;box-shadow:inset 4px 0 0 rgb(255 255 255 / .1),inset -4px 0 0 rgb(0 0 0 / .2),0 10px 14px -8px rgb(16 38 31 / .55)}.ds-spine.ds-cited::before{content:\"\";position:absolute;top:.55rem;left:0;right:0;height:.35rem;background:var(--gold);opacity:.9}.ds-spine.ds-open::after{content:\"\";position:absolute;left:50%;bottom:-1.7rem;width:.7rem;height:1.3rem;transform:translateX(-50%);background:var(--gold);clip-path:polygon(0 0,100% 0,100% 100%,50% 72%,0 100%)}.ds-spine-title{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.8rem;font-weight:700;font-stretch:62%;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;flex:1;min-height:0;padding:.5rem 0}.ds-spine-call{margin-top:.4rem;min-width:1.6rem;padding:.1rem .25rem;border-radius:1px;background:var(--paper);color:var(--ink);font-size:.75rem;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Opened Passage",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The page inside the volume: no box, a cloth rule above, a cloth rank stamp in the title.",
+      "html": "<div class=\"ds-passage ds-cloth-returns\"><h3><span class=\"ds-passage-call\">1</span> Refunds</h3><p>Refunds are issued to the original payment method within 5 business days.</p></div>",
+      "css": ".ds-cloth-returns{--cloth:var(--cloth-returns)}.ds-passage{position:relative;padding-top:1rem;max-width:68ch;font-family:var(--font);color:var(--ink)}.ds-passage::before{content:\"\";position:absolute;top:0;left:0;width:3rem;height:3px;background:var(--cloth)}.ds-passage h3{display:flex;align-items:center;gap:.6rem;margin:0;font-size:1.15rem;font-weight:800;font-stretch:90%}.ds-passage-call{display:inline-flex;align-items:center;justify-content:center;min-width:1.6rem;height:1.6rem;border-radius:2px;background:var(--cloth);color:#fff;font-size:.85rem;font-stretch:75%;font-variant-numeric:tabular-nums}.ds-passage p{margin:.6rem 0 0;font-size:1.05rem;line-height:1.55}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Library Buckram",
+    "overview": "Every policy document is a bound library volume, and every citation is that volume's spine pulled from the shelf. The world is a reading room rendered in cloth and board: a black-green buckram rail across the top with gold-blocked lettering, a cool linen-grey ground, and near-white paper panels where the work happens. Colour is not decoration here; it is the legend. Each policy document owns exactly one cloth, and that cloth follows the document everywhere it appears: the inline call number in the answer, the spine on the shelf, the legend swatch, the rule above the opened passage.\n\nDensity is moderate and calm. One typeface, Archivo, carries the whole system by bending its width axis: wide and heavy for the store name, condensed for stamped labels and call numbers, narrowest for the vertical spine titles. Depth is physical but quiet: the shelf board casts a soft shadow, spines carry cloth bevels, cited volumes are seated forward over the board's lip. Nothing floats, nothing glows.\n\nThe world rejects the chat-bubble widget with grey source chips. Sources are objects with a place on a shelf, not tags trailing a message.",
+    "keyCharacteristics": [
+      "Buckram rail, linen ground, paper panels: three surfaces, one hue family (green-grey).",
+      "One cloth per document; the colour is the legend and the catalog number is the only label.",
+      "Archivo's width axis is the type hierarchy's second dimension.",
+      "Spines stand on one shared baseline, height ramped by retrieval rank.",
+      "Gold marks what matters on buckram: brand, active customer card, cited headband, opened ribbon, focus ring."
+    ],
+    "rules": [
+      {
+        "name": "The Cloth Is The Legend Rule",
+        "body": "Each policy document owns one cloth, and that cloth is applied through a single `--cloth` variable to every representation of the document (call number, spine, swatch, passage rule). Never use a cloth colour for anything that is not that document, with one exception: Returns Oxblood doubles as the alert colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold On Buckram Rule",
+        "body": "Gold appears as stamped marks: lettering, borders, headbands, ribbons, the focus ring. It never fills a panel or a large area.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Hierarchy moves along two axes: weight and width. Expand only for the brand (wdth 112); condense for anything stamped (wdth 62-90). Never introduce a second family to get contrast.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Count Rule",
+        "body": "Every number a reader might compare (order numbers, counts, elapsed seconds, ranks) uses tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shared Baseline Rule",
+        "body": "Every volume stands on the same board. Rank is expressed by height, citation by seating forward; never by moving a spine off the baseline.",
+        "section": "layout"
+      },
+      {
+        "name": "The Only Objects Cast Shadows Rule",
+        "body": "Shadows belong to things that physically exist on the shelf (board, spines). Panels, buttons, and cards stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do route every document colour through the `--cloth` variable via the `cloth-*` classes so call number, spine, swatch, and passage rule always agree.",
+      "Do set dark text (#1b1406) on Promotions Mustard and white on every other cloth.",
+      "Do express hierarchy through Archivo's width axis (wdth 62-112) and weight before reaching for size.",
+      "Do keep spines on one baseline with height from the rank ramp (100, 92, 85, 79, 74, 70, 67, 65 percent).",
+      "Do use the 3px gold focus outline at 2px offset for every focusable element.",
+      "Do use tabular numerals for order numbers, ranks, counts, and timers.",
+      "Do animate with the house ease-out (cubic-bezier(0.16, 1, 0.3, 1)) at 150-300ms for state, 700ms for the spine arrival, and drop all motion under prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't show sources as grey chips or bubbles attached to a chat message; a source is a volume on the shelf.",
+      "Don't use a cloth colour for anything other than its document, except Returns Oxblood as the alert voice.",
+      "Don't put a word on a call number or spine stamp; the catalog number is the only label, the cloth is the legend.",
+      "Don't fill large areas with gold; it is a stamped mark.",
+      "Don't give panels, buttons, or cards drop shadows; only the board and the spines carry depth.",
+      "Don't add a second typeface for headings or labels."
+    ]
+  }
+}

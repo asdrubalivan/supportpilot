@@ -1,0 +1,16 @@
+{"id": "r01-english", "base_id": "r01", "variant": "english", "question": "How many days do I have to send a book back?", "expected_ids": ["returns.md#return-window"]}
+{"id": "r01-english-typos", "base_id": "r01", "variant": "english-typos", "question": "how many dayz do i have to send a bok back", "expected_ids": ["returns.md#return-window"]}
+{"id": "r02-english", "base_id": "r02", "variant": "english", "question": "Can I return a signed copy?", "expected_ids": ["returns.md#non-returnable-items"]}
+{"id": "r02-english-typos", "base_id": "r02", "variant": "english-typos", "question": "can i retrun a sined copy", "expected_ids": ["returns.md#non-returnable-items"]}
+{"id": "r03-english", "base_id": "r03", "variant": "english", "question": "How long until my money shows up after a return?", "expected_ids": ["returns.md#refunds"]}
+{"id": "r03-english-typos", "base_id": "r03", "variant": "english-typos", "question": "how long untill my mony shows up after a retrn", "expected_ids": ["returns.md#refunds"]}
+{"id": "r04-english", "base_id": "r04", "variant": "english", "question": "The book came with a torn cover, what now?", "expected_ids": ["returns.md#damaged-books"]}
+{"id": "r04-english-typos", "base_id": "r04", "variant": "english-typos", "question": "the bok came with a torn covr what now", "expected_ids": ["returns.md#damaged-books"]}
+{"id": "r05-english", "base_id": "r05", "variant": "english", "question": "What does express delivery cost?", "expected_ids": ["shipping.md#shipping-options"]}
+{"id": "r05-english-typos", "base_id": "r05", "variant": "english-typos", "question": "wat does expres delivary cost", "expected_ids": ["shipping.md#shipping-options"]}
+{"id": "r06-english", "base_id": "r06", "variant": "english", "question": "Do I pay for shipping on a $60 order?", "expected_ids": ["shipping.md#free-shipping"]}
+{"id": "r06-english-typos", "base_id": "r06", "variant": "english-typos", "question": "do i pay for shiping on a 60 dolar order", "expected_ids": ["shipping.md#free-shipping"]}
+{"id": "r07-english", "base_id": "r07", "variant": "english", "question": "Is a signed Jules Verne book 20% off?", "expected_ids": ["promotions.md#jules-verne-discount", "promotions.md#exclusions"]}
+{"id": "r07-english-typos", "base_id": "r07", "variant": "english-typos", "question": "is a sined jules vern book 20% of", "expected_ids": ["promotions.md#jules-verne-discount", "promotions.md#exclusions"]}
+{"id": "r08-english", "base_id": "r08", "variant": "english", "question": "Can I buy a Kindle version?", "expected_ids": ["catalog.md#book-formats"]}
+{"id": "r08-english-typos", "base_id": "r08", "variant": "english-typos", "question": "can i by a kindel version", "expected_ids": ["catalog.md#book-formats"]}

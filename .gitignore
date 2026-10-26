@@ -1,0 +1,6 @@
+.vibe-wise/
+.venv/
+__pycache__/
+.impeccable/review/
+.impeccable/questions/
+.DS_Store

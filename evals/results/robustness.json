@@ -1,0 +1,550 @@
+[
+  {
+    "mode": "vector",
+    "id": "r01-english",
+    "base_id": "r01",
+    "variant": "english",
+    "question": "How many days do I have to send a book back?",
+    "expected_ids": [
+      "returns.md#return-window"
+    ],
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r01-english-typos",
+    "base_id": "r01",
+    "variant": "english-typos",
+    "question": "how many dayz do i have to send a bok back",
+    "expected_ids": [
+      "returns.md#return-window"
+    ],
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r02-english",
+    "base_id": "r02",
+    "variant": "english",
+    "question": "Can I return a signed copy?",
+    "expected_ids": [
+      "returns.md#non-returnable-items"
+    ],
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "catalog.md#signed-copies",
+      "promotions.md#exclusions",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r02-english-typos",
+    "base_id": "r02",
+    "variant": "english-typos",
+    "question": "can i retrun a sined copy",
+    "expected_ids": [
+      "returns.md#non-returnable-items"
+    ],
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "catalog.md#signed-copies",
+      "catalog.md#what-we-sell",
+      "promotions.md#exclusions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r03-english",
+    "base_id": "r03",
+    "variant": "english",
+    "question": "How long until my money shows up after a return?",
+    "expected_ids": [
+      "returns.md#refunds"
+    ],
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r03-english-typos",
+    "base_id": "r03",
+    "variant": "english-typos",
+    "question": "how long untill my mony shows up after a retrn",
+    "expected_ids": [
+      "returns.md#refunds"
+    ],
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#return-window",
+      "shipping.md#shipping-options",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r04-english",
+    "base_id": "r04",
+    "variant": "english",
+    "question": "The book came with a torn cover, what now?",
+    "expected_ids": [
+      "returns.md#damaged-books"
+    ],
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#non-returnable-items",
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r04-english-typos",
+    "base_id": "r04",
+    "variant": "english-typos",
+    "question": "the bok came with a torn covr what now",
+    "expected_ids": [
+      "returns.md#damaged-books"
+    ],
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "catalog.md#what-we-sell",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r05-english",
+    "base_id": "r05",
+    "variant": "english",
+    "question": "What does express delivery cost?",
+    "expected_ids": [
+      "shipping.md#shipping-options"
+    ],
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#where-we-ship",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r05-english-typos",
+    "base_id": "r05",
+    "variant": "english-typos",
+    "question": "wat does expres delivary cost",
+    "expected_ids": [
+      "shipping.md#shipping-options"
+    ],
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "promotions.md#exclusions",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r06-english",
+    "base_id": "r06",
+    "variant": "english",
+    "question": "Do I pay for shipping on a $60 order?",
+    "expected_ids": [
+      "shipping.md#free-shipping"
+    ],
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r06-english-typos",
+    "base_id": "r06",
+    "variant": "english-typos",
+    "question": "do i pay for shiping on a 60 dolar order",
+    "expected_ids": [
+      "shipping.md#free-shipping"
+    ],
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "shipping.md#tracking",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r07-english",
+    "base_id": "r07",
+    "variant": "english",
+    "question": "Is a signed Jules Verne book 20% off?",
+    "expected_ids": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#exclusions"
+    ],
+    "retrieved": [
+      "promotions.md#exclusions",
+      "catalog.md#signed-copies",
+      "promotions.md#jules-verne-discount",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r07-english-typos",
+    "base_id": "r07",
+    "variant": "english-typos",
+    "question": "is a sined jules vern book 20% of",
+    "expected_ids": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#exclusions"
+    ],
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "promotions.md#jules-verne-discount",
+      "catalog.md#signed-copies",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "vector",
+    "id": "r08-english",
+    "base_id": "r08",
+    "variant": "english",
+    "question": "Can I buy a Kindle version?",
+    "expected_ids": [
+      "catalog.md#book-formats"
+    ],
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "returns.md#non-returnable-items",
+      "promotions.md#exclusions",
+      "catalog.md#book-formats"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "id": "r08-english-typos",
+    "base_id": "r08",
+    "variant": "english-typos",
+    "question": "can i by a kindel version",
+    "expected_ids": [
+      "catalog.md#book-formats"
+    ],
+    "retrieved": [
+      "catalog.md#book-formats",
+      "returns.md#non-returnable-items",
+      "promotions.md#exclusions",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r01-english",
+    "base_id": "r01",
+    "variant": "english",
+    "question": "How many days do I have to send a book back?",
+    "expected_ids": [
+      "returns.md#return-window"
+    ],
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r01-english-typos",
+    "base_id": "r01",
+    "variant": "english-typos",
+    "question": "how many dayz do i have to send a bok back",
+    "expected_ids": [
+      "returns.md#return-window"
+    ],
+    "retrieved": [
+      "returns.md#return-window",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#refunds",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r02-english",
+    "base_id": "r02",
+    "variant": "english",
+    "question": "Can I return a signed copy?",
+    "expected_ids": [
+      "returns.md#non-returnable-items"
+    ],
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "catalog.md#signed-copies",
+      "promotions.md#exclusions",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r02-english-typos",
+    "base_id": "r02",
+    "variant": "english-typos",
+    "question": "can i retrun a sined copy",
+    "expected_ids": [
+      "returns.md#non-returnable-items"
+    ],
+    "retrieved": [
+      "catalog.md#signed-copies",
+      "returns.md#non-returnable-items",
+      "promotions.md#exclusions",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r03-english",
+    "base_id": "r03",
+    "variant": "english",
+    "question": "How long until my money shows up after a return?",
+    "expected_ids": [
+      "returns.md#refunds"
+    ],
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "returns.md#refunds",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r03-english-typos",
+    "base_id": "r03",
+    "variant": "english-typos",
+    "question": "how long untill my mony shows up after a retrn",
+    "expected_ids": [
+      "returns.md#refunds"
+    ],
+    "retrieved": [
+      "shipping.md#tracking",
+      "returns.md#refunds",
+      "catalog.md#antique-editions",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r04-english",
+    "base_id": "r04",
+    "variant": "english",
+    "question": "The book came with a torn cover, what now?",
+    "expected_ids": [
+      "returns.md#damaged-books"
+    ],
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r04-english-typos",
+    "base_id": "r04",
+    "variant": "english-typos",
+    "question": "the bok came with a torn covr what now",
+    "expected_ids": [
+      "returns.md#damaged-books"
+    ],
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "catalog.md#what-we-sell",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r05-english",
+    "base_id": "r05",
+    "variant": "english",
+    "question": "What does express delivery cost?",
+    "expected_ids": [
+      "shipping.md#shipping-options"
+    ],
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "returns.md#return-window",
+      "shipping.md#free-shipping",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r05-english-typos",
+    "base_id": "r05",
+    "variant": "english-typos",
+    "question": "wat does expres delivary cost",
+    "expected_ids": [
+      "shipping.md#shipping-options"
+    ],
+    "retrieved": [
+      "returns.md#refunds",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "promotions.md#exclusions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r06-english",
+    "base_id": "r06",
+    "variant": "english",
+    "question": "Do I pay for shipping on a $60 order?",
+    "expected_ids": [
+      "shipping.md#free-shipping"
+    ],
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r06-english-typos",
+    "base_id": "r06",
+    "variant": "english-typos",
+    "question": "do i pay for shiping on a 60 dolar order",
+    "expected_ids": [
+      "shipping.md#free-shipping"
+    ],
+    "retrieved": [
+      "shipping.md#tracking",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r07-english",
+    "base_id": "r07",
+    "variant": "english",
+    "question": "Is a signed Jules Verne book 20% off?",
+    "expected_ids": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#exclusions"
+    ],
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "catalog.md#signed-copies",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "hybrid",
+    "id": "r07-english-typos",
+    "base_id": "r07",
+    "variant": "english-typos",
+    "question": "is a sined jules vern book 20% of",
+    "expected_ids": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#exclusions"
+    ],
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "catalog.md#what-we-sell",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "hybrid",
+    "id": "r08-english",
+    "base_id": "r08",
+    "variant": "english",
+    "question": "Can I buy a Kindle version?",
+    "expected_ids": [
+      "catalog.md#book-formats"
+    ],
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#non-returnable-items",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "id": "r08-english-typos",
+    "base_id": "r08",
+    "variant": "english-typos",
+    "question": "can i by a kindel version",
+    "expected_ids": [
+      "catalog.md#book-formats"
+    ],
+    "retrieved": [
+      "catalog.md#book-formats",
+      "returns.md#non-returnable-items",
+      "promotions.md#exclusions",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 1.0
+  }
+]

@@ -1,0 +1,1506 @@
+[
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#refunds"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 1,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#damaged-books"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "catalog.md#signed-copies"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 2,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "catalog.md#signed-copies",
+      "returns.md#return-window"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#where-we-ship",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "catalog.md#signed-copies",
+      "promotions.md#promotions-cannot-be-combined",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats",
+      "catalog.md#overview",
+      "catalog.md#signed-copies"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 4,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell",
+      "promotions.md#jules-verne-discount",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#non-returnable-items",
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#returns-from-promotional-orders",
+      "shipping.md#shipping-options",
+      "returns.md#refunds",
+      "shipping.md#tracking",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "catalog.md#signed-copies",
+      "returns.md#return-window",
+      "returns.md#refunds",
+      "catalog.md#what-we-sell",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "promotions.md#promotions-cannot-be-combined",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#non-returnable-items",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#non-returnable-items",
+      "returns.md#return-window",
+      "promotions.md#self-help-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "shipping.md#free-shipping",
+      "promotions.md#jules-verne-discount",
+      "returns.md#non-returnable-items",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell",
+      "returns.md#return-window",
+      "catalog.md#antique-editions",
+      "catalog.md#signed-copies",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#where-we-ship",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#refunds",
+      "shipping.md#tracking",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#return-window",
+      "shipping.md#where-we-ship",
+      "returns.md#damaged-books",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking",
+      "catalog.md#what-we-sell",
+      "catalog.md#signed-copies",
+      "returns.md#damaged-books",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell",
+      "promotions.md#promotions-cannot-be-combined",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "catalog.md#overview",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "catalog.md#signed-copies",
+      "promotions.md#promotions-cannot-be-combined",
+      "promotions.md#self-help-discount",
+      "promotions.md#exclusions",
+      "returns.md#returns-from-promotional-orders",
+      "catalog.md#what-we-sell",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#self-help-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell",
+      "returns.md#return-window",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#refunds",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats",
+      "catalog.md#overview",
+      "catalog.md#signed-copies",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#jules-verne-discount",
+      "promotions.md#exclusions",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "vector",
+    "k": 8,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "returns.md#refunds",
+      "shipping.md#tracking",
+      "returns.md#damaged-books",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#damaged-books"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 1,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 0.5
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 2,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#return-window",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#non-returnable-items",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "promotions.md#buy-5-get-the-cheapest-free"
+    ],
+    "recall": 0.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#promotions-cannot-be-combined",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#where-we-ship",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#signed-copies",
+      "promotions.md#exclusions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount",
+      "catalog.md#what-we-sell",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats",
+      "catalog.md#overview",
+      "returns.md#returns-from-promotional-orders"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 4,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "shipping.md#tracking"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g01",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#return-window",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#non-returnable-items",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "catalog.md#what-we-sell",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g02",
+    "retrieved": [
+      "returns.md#return-window",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#non-returnable-items",
+      "returns.md#damaged-books",
+      "shipping.md#tracking",
+      "shipping.md#shipping-options",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g03",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "catalog.md#signed-copies",
+      "returns.md#refunds",
+      "returns.md#non-returnable-items",
+      "promotions.md#promotions-cannot-be-combined"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g04",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#refunds",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#promotions-cannot-be-combined",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "shipping.md#shipping-options",
+      "returns.md#non-returnable-items"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g05",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#promotions-cannot-be-combined",
+      "returns.md#damaged-books",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#non-returnable-items",
+      "returns.md#return-window",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g06",
+    "retrieved": [
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#damaged-books",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g07",
+    "retrieved": [
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "catalog.md#what-we-sell",
+      "returns.md#return-window",
+      "catalog.md#book-formats",
+      "catalog.md#antique-editions"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g08",
+    "retrieved": [
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#where-we-ship",
+      "returns.md#refunds",
+      "shipping.md#tracking",
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g09",
+    "retrieved": [
+      "shipping.md#free-shipping",
+      "shipping.md#shipping-options",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#returns-from-promotional-orders",
+      "shipping.md#where-we-ship",
+      "returns.md#return-window",
+      "shipping.md#tracking",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g10",
+    "retrieved": [
+      "shipping.md#where-we-ship",
+      "shipping.md#shipping-options",
+      "shipping.md#free-shipping",
+      "shipping.md#tracking",
+      "catalog.md#what-we-sell",
+      "returns.md#refunds",
+      "catalog.md#signed-copies",
+      "returns.md#damaged-books"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g12",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#self-help-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#damaged-books",
+      "catalog.md#overview"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g13",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#signed-copies",
+      "promotions.md#exclusions",
+      "shipping.md#free-shipping",
+      "catalog.md#what-we-sell",
+      "returns.md#non-returnable-items",
+      "promotions.md#self-help-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g14",
+    "retrieved": [
+      "promotions.md#jules-verne-discount",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "promotions.md#promotions-cannot-be-combined",
+      "catalog.md#what-we-sell",
+      "returns.md#refunds",
+      "promotions.md#self-help-discount",
+      "returns.md#return-window"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g15",
+    "retrieved": [
+      "promotions.md#self-help-discount",
+      "promotions.md#jules-verne-discount",
+      "catalog.md#what-we-sell",
+      "promotions.md#promotions-cannot-be-combined",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g16",
+    "retrieved": [
+      "catalog.md#what-we-sell",
+      "catalog.md#book-formats",
+      "catalog.md#overview",
+      "returns.md#returns-from-promotional-orders",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "catalog.md#signed-copies",
+      "returns.md#damaged-books",
+      "promotions.md#jules-verne-discount"
+    ],
+    "recall": 1.0
+  },
+  {
+    "mode": "hybrid",
+    "k": 8,
+    "id": "g21",
+    "retrieved": [
+      "returns.md#returns-from-promotional-orders",
+      "returns.md#return-window",
+      "returns.md#non-returnable-items",
+      "shipping.md#tracking",
+      "returns.md#damaged-books",
+      "shipping.md#shipping-options",
+      "promotions.md#buy-5-get-the-cheapest-free",
+      "returns.md#refunds"
+    ],
+    "recall": 1.0
+  }
+]
