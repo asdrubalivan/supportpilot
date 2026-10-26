@@ -24,6 +24,32 @@
       "returns.md#damaged-books",
       "returns.md#non-returnable-items"
     ],
+    "passages": [
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -58,6 +84,32 @@
       "returns.md#non-returnable-items",
       "returns.md#damaged-books",
       "returns.md#refunds"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -97,6 +149,32 @@
       "returns.md#damaged-books",
       "promotions.md#exclusions"
     ],
+    "passages": [
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      },
+      {
+        "id": "catalog.md#signed-copies",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "Signed copies",
+        "text": "Signed copies carry an author or translator signature and include a certificate of authenticity. Signed copies are sold as unique items and are marked \"Signed\" on the product page."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "promotions.md#exclusions",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Exclusions",
+        "text": "Signed copies are excluded from all promotions."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 0.5,
@@ -132,6 +210,32 @@
       "returns.md#return-window",
       "returns.md#damaged-books"
     ],
+    "passages": [
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -162,6 +266,32 @@
       "returns.md#returns-from-promotional-orders",
       "returns.md#damaged-books",
       "returns.md#non-returnable-items"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -194,6 +324,32 @@
       "returns.md#damaged-books",
       "returns.md#returns-from-promotional-orders",
       "returns.md#non-returnable-items"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -228,6 +384,32 @@
       "returns.md#non-returnable-items",
       "returns.md#return-window"
     ],
+    "passages": [
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 0.5,
@@ -258,6 +440,32 @@
       "shipping.md#free-shipping",
       "shipping.md#where-we-ship",
       "returns.md#refunds"
+    ],
+    "passages": [
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "shipping.md#free-shipping",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Free shipping",
+        "text": "Standard shipping is free for orders of $50 or more. The $50 threshold is calculated after discounts are applied. Express shipping is never free."
+      },
+      {
+        "id": "shipping.md#where-we-ship",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Where we ship",
+        "text": "We ship only within the country. We do not offer international shipping."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -290,6 +498,32 @@
       "promotions.md#buy-5-get-the-cheapest-free",
       "returns.md#returns-from-promotional-orders"
     ],
+    "passages": [
+      {
+        "id": "shipping.md#free-shipping",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Free shipping",
+        "text": "Standard shipping is free for orders of $50 or more. The $50 threshold is calculated after discounts are applied. Express shipping is never free."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "promotions.md#buy-5-get-the-cheapest-free",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Buy 5, get the cheapest free",
+        "text": "When an order contains 5 or more books, the cheapest book in the order is free. Only one book per order is free, regardless of how many books the order contains."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -320,6 +554,32 @@
       "shipping.md#tracking",
       "shipping.md#shipping-options",
       "shipping.md#free-shipping"
+    ],
+    "passages": [
+      {
+        "id": "shipping.md#where-we-ship",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Where we ship",
+        "text": "We ship only within the country. We do not offer international shipping."
+      },
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "shipping.md#free-shipping",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Free shipping",
+        "text": "Standard shipping is free for orders of $50 or more. The $50 threshold is calculated after discounts are applied. Express shipping is never free."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -355,6 +615,32 @@
       "shipping.md#free-shipping",
       "returns.md#damaged-books"
     ],
+    "passages": [
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "shipping.md#free-shipping",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Free shipping",
+        "text": "Standard shipping is free for orders of $50 or more. The $50 threshold is calculated after discounts are applied. Express shipping is never free."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": null,
@@ -385,6 +671,32 @@
       "promotions.md#self-help-discount",
       "returns.md#returns-from-promotional-orders",
       "promotions.md#exclusions"
+    ],
+    "passages": [
+      {
+        "id": "promotions.md#jules-verne-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Jules Verne discount",
+        "text": "All books written by Jules Verne have a 20% discount, in any edition."
+      },
+      {
+        "id": "promotions.md#self-help-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Self-help discount",
+        "text": "All books in the Self-help section have a 50% discount."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "promotions.md#exclusions",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Exclusions",
+        "text": "Signed copies are excluded from all promotions."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -420,6 +732,32 @@
       "promotions.md#jules-verne-discount",
       "returns.md#non-returnable-items"
     ],
+    "passages": [
+      {
+        "id": "promotions.md#exclusions",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Exclusions",
+        "text": "Signed copies are excluded from all promotions."
+      },
+      {
+        "id": "catalog.md#signed-copies",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "Signed copies",
+        "text": "Signed copies carry an author or translator signature and include a certificate of authenticity. Signed copies are sold as unique items and are marked \"Signed\" on the product page."
+      },
+      {
+        "id": "promotions.md#jules-verne-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Jules Verne discount",
+        "text": "All books written by Jules Verne have a 20% discount, in any edition."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -451,6 +789,32 @@
       "returns.md#returns-from-promotional-orders",
       "promotions.md#promotions-cannot-be-combined"
     ],
+    "passages": [
+      {
+        "id": "promotions.md#buy-5-get-the-cheapest-free",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Buy 5, get the cheapest free",
+        "text": "When an order contains 5 or more books, the cheapest book in the order is free. Only one book per order is free, regardless of how many books the order contains."
+      },
+      {
+        "id": "promotions.md#jules-verne-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Jules Verne discount",
+        "text": "All books written by Jules Verne have a 20% discount, in any edition."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "promotions.md#promotions-cannot-be-combined",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Promotions cannot be combined",
+        "text": "Promotions are not cumulative: only one promotion applies to each order. At checkout, the system automatically applies the single promotion that gives the customer the largest saving. For example, a Jules Verne book that is part of a 5-book order does not get both the 20% discount and the free-book promotion."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -481,6 +845,32 @@
       "promotions.md#jules-verne-discount",
       "returns.md#returns-from-promotional-orders",
       "promotions.md#promotions-cannot-be-combined"
+    ],
+    "passages": [
+      {
+        "id": "promotions.md#self-help-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Self-help discount",
+        "text": "All books in the Self-help section have a 50% discount."
+      },
+      {
+        "id": "promotions.md#jules-verne-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Jules Verne discount",
+        "text": "All books written by Jules Verne have a 20% discount, in any edition."
+      },
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "promotions.md#promotions-cannot-be-combined",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Promotions cannot be combined",
+        "text": "Promotions are not cumulative: only one promotion applies to each order. At checkout, the system automatically applies the single promotion that gives the customer the largest saving. For example, a Jules Verne book that is part of a 5-book order does not get both the 20% discount and the free-book promotion."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -515,6 +905,32 @@
       "catalog.md#overview",
       "promotions.md#exclusions"
     ],
+    "passages": [
+      {
+        "id": "catalog.md#book-formats",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "Book formats",
+        "text": "All books are physical. We do not sell e-books or audiobooks."
+      },
+      {
+        "id": "catalog.md#what-we-sell",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "What we sell",
+        "text": "We sell new and second-hand editions of classic books in four sections:\n\n- **Classic novels**: works such as *Pride and Prejudice*, *Don Quixote*, and *Crime and Punishment*.\n- **Adventure and science fiction**: including the complete works of Jules Verne, H. G. Wells, and Robert Louis Stevenson.\n- **Philosophy**: from Plato and Marcus Aurelius to Nietzsche.\n- **Self-help**: classic self-improvement titles such as *How to Win Friends and Influence People* and *The Art of War*."
+      },
+      {
+        "id": "catalog.md#overview",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "Overview",
+        "text": "Old Pages Books is an online bookstore specializing in classic literature."
+      },
+      {
+        "id": "promotions.md#exclusions",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Exclusions",
+        "text": "Signed copies are excluded from all promotions."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": 1.0,
@@ -542,6 +958,32 @@
       "catalog.md#book-formats",
       "shipping.md#where-we-ship"
     ],
+    "passages": [
+      {
+        "id": "catalog.md#what-we-sell",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "What we sell",
+        "text": "We sell new and second-hand editions of classic books in four sections:\n\n- **Classic novels**: works such as *Pride and Prejudice*, *Don Quixote*, and *Crime and Punishment*.\n- **Adventure and science fiction**: including the complete works of Jules Verne, H. G. Wells, and Robert Louis Stevenson.\n- **Philosophy**: from Plato and Marcus Aurelius to Nietzsche.\n- **Self-help**: classic self-improvement titles such as *How to Win Friends and Influence People* and *The Art of War*."
+      },
+      {
+        "id": "promotions.md#jules-verne-discount",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Jules Verne discount",
+        "text": "All books written by Jules Verne have a 20% discount, in any edition."
+      },
+      {
+        "id": "catalog.md#book-formats",
+        "document": "Catalog \u2014 Old Pages Books",
+        "section": "Book formats",
+        "text": "All books are physical. We do not sell e-books or audiobooks."
+      },
+      {
+        "id": "shipping.md#where-we-ship",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Where we ship",
+        "text": "We ship only within the country. We do not offer international shipping."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": null,
@@ -568,6 +1010,32 @@
       "returns.md#return-window",
       "returns.md#damaged-books",
       "shipping.md#tracking"
+    ],
+    "passages": [
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -601,6 +1069,32 @@
       "returns.md#return-window",
       "shipping.md#shipping-options"
     ],
+    "passages": [
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      }
+    ],
     "answer_pass": true,
     "tools_pass": true,
     "citation_precision": null,
@@ -628,6 +1122,32 @@
       "shipping.md#shipping-options",
       "shipping.md#free-shipping",
       "promotions.md#exclusions"
+    ],
+    "passages": [
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "shipping.md#free-shipping",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Free shipping",
+        "text": "Standard shipping is free for orders of $50 or more. The $50 threshold is calculated after discounts are applied. Express shipping is never free."
+      },
+      {
+        "id": "promotions.md#exclusions",
+        "document": "Promotions \u2014 Old Pages Books",
+        "section": "Exclusions",
+        "text": "Signed copies are excluded from all promotions."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,
@@ -661,6 +1181,32 @@
       "returns.md#return-window",
       "returns.md#non-returnable-items",
       "returns.md#damaged-books"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#returns-from-promotional-orders",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Returns from promotional orders",
+        "text": "If you return books from an order that received the \"Buy 5, get the cheapest free\" promotion, and the order is left with fewer than 5 books, the promotion no longer applies. In that case, the price of the book that was free is deducted from your refund."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      }
     ],
     "answer_pass": true,
     "tools_pass": true,

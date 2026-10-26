@@ -17,3 +17,6 @@ CHAT_MODEL = os.getenv("CHAT_MODEL", "qwen3:8b")
 
 # LlamaIndex prefixes the table name with "data_", so the real table is data_policy_chunks.
 POLICY_TABLE = "policy_chunks"
+
+MCP_PORT = int(os.getenv("MCP_PORT", "8001"))
+MCP_URL = os.getenv("MCP_URL", f"http://127.0.0.1:{MCP_PORT}/mcp")

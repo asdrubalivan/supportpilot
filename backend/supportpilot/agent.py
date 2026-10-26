@@ -1,22 +1,27 @@
 """Support agent: a LlamaIndex FunctionAgent over Ollama that picks tools, then answers with citations.
 
+The tools live in the MCP server (supportpilot.mcp_server); this agent is its client. Start the server first.
+
 Try it with: uv run python -m supportpilot.agent "Can I return order 1234?"
 """
 
 import asyncio
+import json
 import re
 import sys
 from datetime import date
 from functools import lru_cache
 
+import httpx2
 from llama_index.core.agent.workflow import FunctionAgent, ToolCallResult
 from llama_index.core.tools import FunctionTool
 from llama_index.llms.ollama import Ollama
+from mcp import Client
+from mcp.client.streamable_http import streamable_http_client
 from pydantic import BaseModel
 
 from supportpilot import config
-from supportpilot.orders import Order, get_latest_order, get_order
-from supportpilot.retrieval import build_retriever
+from supportpilot.mcp_server import CUSTOMER_HEADER
 
 MAX_ITERATIONS = 5
 NO_INFO = "I don't have information about that."
@@ -75,63 +80,72 @@ def get_llm() -> Ollama:
     )
 
 
-@lru_cache
-def get_retriever():
-    return build_retriever()
+async def call(client: Client, tool: str, arguments: dict | None = None):
+    result = await client.call_tool(tool, arguments or {})
+    if result.is_error:
+        raise RuntimeError(f"MCP tool {tool} failed: {result.content}")
+    return result.structured_content["result"]
 
 
-def format_order(order: Order | None) -> str:
-    return order.model_dump_json(indent=2) if order else "Order not found."
+def format_order(order: dict | None) -> str:
+    return json.dumps(order, indent=2) if order else "Order not found."
 
 
-def retrieve(query: str, passages: dict[str, Passage]) -> str:
+async def retrieve(client: Client, query: str, passages: dict[str, Passage]) -> str:
     """Retrieve policy chunks, record them in retrieval order, and format them for the prompt."""
-    results = get_retriever().retrieve(query)
-    for r in results:
-        _, _, body = r.node.get_content().partition("\n")  # drop the "## Heading" line
-        passages.setdefault(r.node.node_id, Passage(
-            id=r.node.node_id,
-            document=r.node.metadata["document"],
-            section=r.node.metadata["section"],
-            text=body.strip(),
+    chunks = await call(client, "search_policies", {"query": query})
+    for c in chunks:
+        _, _, body = c["content"].partition("\n")  # drop the "## Heading" line
+        passages.setdefault(c["id"], Passage(
+            id=c["id"], document=c["document"], section=c["section"], text=body.strip()
         ))
-    return "\n".join(f'<chunk id="{r.node.node_id}">\n{r.node.get_content()}\n</chunk>' for r in results)
+    return "\n".join(f'<chunk id="{c["id"]}">\n{c["content"]}\n</chunk>' for c in chunks)
 
 
-def build_tools(message: str, customer_id: int, passages: dict[str, Passage]) -> list[FunctionTool]:
-    # customer_id is captured here and never exposed to the LLM as a tool argument.
+def build_tools(client: Client, message: str, passages: dict[str, Passage]) -> list[FunctionTool]:
+    # The customer is fixed on the MCP connection and never exposed to the LLM as a tool argument.
     # Order ids the model may look up: those the customer typed, plus any returned by get_latest_order.
+    # This check stays here because only the client sees the customer's message.
     allowed_order_ids = {int(n) for n in re.findall(r"\d+", message)}
 
-    def search_policies(query: str) -> str:
+    async def search_policies(query: str) -> str:
         """Search the store's policy documents (returns, refunds, shipping, promotions, catalog)
         with a different query than the customer's message. Returns policy chunks, each with an id to cite."""
-        return retrieve(query, passages)
+        return await retrieve(client, query, passages)
 
-    def get_order_tool(order_id: int) -> str:
+    async def get_order_tool(order_id: int) -> str:
         """Look up one of the customer's orders by its order number."""
         if order_id not in allowed_order_ids:
             return "Rejected: the customer did not mention this order number. Ask them for it."
-        return format_order(get_order(order_id, customer_id))
+        return format_order(await call(client, "get_order", {"order_id": order_id}))
 
-    def get_latest_order_tool() -> str:
+    async def get_latest_order_tool() -> str:
         """Look up the customer's most recent order."""
-        order = get_latest_order(customer_id)
+        order = await call(client, "get_latest_order")
         if order:
-            allowed_order_ids.add(order.order_id)
+            allowed_order_ids.add(order["order_id"])
         return format_order(order)
 
     return [
-        FunctionTool.from_defaults(fn=search_policies),
-        FunctionTool.from_defaults(fn=get_order_tool, name="get_order"),
-        FunctionTool.from_defaults(fn=get_latest_order_tool, name="get_latest_order"),
+        FunctionTool.from_defaults(async_fn=search_policies),
+        FunctionTool.from_defaults(async_fn=get_order_tool, name="get_order"),
+        FunctionTool.from_defaults(async_fn=get_latest_order_tool, name="get_latest_order"),
     ]
 
 
 async def answer(message: str, customer_id: int) -> AgentResult:
+    # One MCP session per question, with the customer set by our code on the connection.
+    async with (
+        httpx2.AsyncClient(headers={CUSTOMER_HEADER: str(customer_id)}, timeout=120.0) as http,
+        Client(streamable_http_client(config.MCP_URL, http_client=http)) as client,
+    ):
+        return await run_agent(client, message)
+
+
+async def run_agent(client: Client, message: str) -> AgentResult:
     passages: dict[str, Passage] = {}
     agent = FunctionAgent(
-        tools=build_tools(message, customer_id, passages),
+        tools=build_tools(client, message, passages),
         llm=get_llm(),
         system_prompt=SYSTEM_PROMPT.format(today=date.today().isoformat(), no_info=NO_INFO),
         allow_parallel_tool_calls=True,
@@ -139,7 +153,7 @@ async def answer(message: str, customer_id: int) -> AgentResult:
 
     # Retrieval always runs on the customer's own words: a small model anchored on an order
     # number tends to skip search_policies, and its rewritten queries retrieved worse chunks.
-    policies = retrieve(message, passages)
+    policies = await retrieve(client, message, passages)
     user_msg = f"<policies>\n{policies}\n</policies>\n\n<customer_message>\n{message}\n</customer_message>"
 
     tools_called = []

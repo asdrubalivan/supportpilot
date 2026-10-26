@@ -39,3 +39,27 @@ SupportPilot is a learning lab. It was built with Claude Code in a "learn while 
 - Validate an LLM judge against hand labels before reporting faithfulness.
 - Spanish and slang question variants.
 - Write actions with confirmation (slice 2).
+
+## Slice 2a: MCP server, read-only (2026-10-26)
+
+### Decisions I made
+
+- **Why MCP:** honestly, for my CV. I want my own answer to "what does MCP buy you" before interviews.
+- **Split slice 2:** 2a MCP read-only, 2b Keycloak (OIDC) + Slack account linking, 2c support approval + `cancel_order`/`create_order`. MCP first.
+- **Exposed tools:** `search_policies`, `get_order`, `get_latest_order`. `cancel_order` waits until approval exists; `create_order` deferred.
+- **Identity on the connection, not in tool arguments**, chosen after a diagram of both channels.
+- **Streamable HTTP over stdio:** a customer fixed per process would collide between concurrent customers.
+- **Design for later slices:** real auth via OAuth/OIDC with a local Keycloak; customers chat from Slack, the web frontend stays; order states `proposed → processed` (support approves) `→ shipped → delivered`, plus `rejected` and `cancelled`, so the agent never creates anything on its own.
+
+### What I understood
+
+- Read-only tools can run freely; tools with side effects that can't be undone need approval.
+- A tool argument is written by the model, so it can't carry identity.
+- Slack signatures prove which Slack user wrote, not who that person is in the store. Linking needs a one-time login, and a confirmation screen naming the Slack account, because `state` alone doesn't stop a phished link.
+- An unsigned header can be forged by anyone who reaches the server; a token signed by Keycloak can't, since only Keycloak holds the signing key.
+
+### What I left to the AI or needed help with
+
+- The AI wrote the MCP server, the client wiring, and these docs; I reviewed the design and the eval results.
+- I needed explanations, diagrams, and an ELI5 for the OAuth account-linking flow (I mixed up `state`, `code`, and Slack signatures), for where identity should travel, and for why the order-id check lives in the agent (only the client sees the message, so it's not a security boundary).
+- I chose to exclude `create_order` and to require approval for it before fully stating why.

@@ -8,6 +8,7 @@ dependencies = [
     "llama-index-embeddings-ollama",
     "llama-index-llms-ollama>=0.11.0",
     "llama-index-vector-stores-postgres",
+    "mcp>=1.10",
     "psycopg[binary]>=3.3.6",
     "pydantic>=2.14.1",
     "uvicorn>=0.54.0",

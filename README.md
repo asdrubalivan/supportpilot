@@ -4,7 +4,7 @@ A support agent for **Old Pages Books**, a fictional online store of classic boo
 
 ![SupportPilot demo: a customer asks to return an order and gets a cited answer; another customer asks about the same order and is told nothing](demo/out/supportpilot.gif)
 
-This is a learning lab (see [`AI_ASSISTED_DEVELOPMENT.md`](AI_ASSISTED_DEVELOPMENT.md)). Slice 1 is read-only and single-turn.
+This is a learning lab (see [`AI_ASSISTED_DEVELOPMENT.md`](AI_ASSISTED_DEVELOPMENT.md)). Slice 1 is read-only and single-turn; slice 2a moved the tools behind an MCP server with no change in the evals.
 
 ## How it works
 
@@ -14,17 +14,18 @@ OFFLINE   data/policies/*.md ─ one chunk per heading (stable <!-- id --> ancho
             ─ embed (nomic-embed-text) ─> pgvector
 
 ONLINE    question + customer_id
-            ─> vector search on the customer's own words (k=4)        [always]
-            ─> FunctionAgent (qwen3:8b) with tools:
+            ─> FunctionAgent (qwen3:8b), an MCP client; customer_id rides on the MCP connection
+            ─> MCP server (Streamable HTTP, localhost:8001) with tools:
+                 search_policies(query)   vector search, k=4; always run on the customer's own words
                  get_order(order_id)      scoped to customer_id, SQL written by hand
                  get_latest_order()
-                 search_policies(query)   optional extra search
             ─> answer with [file.md#section] citations
             ─> citations checked against what was actually retrieved
 ```
 
 Design decisions worth knowing:
 
+- **Tools behind an MCP server.** The customer comes from a header on the MCP connection, set by the backend, never from tool arguments the model writes. The header is not verified yet, so the server only listens on localhost; signed tokens from a real identity provider come in slice 2b.
 - **Fixed tools, not text-to-SQL.** `customer_id` is captured in a closure, never a tool argument, so the model can't ask for another customer's orders. A missing order and someone else's order return the same "not found".
 - **Retrieval always runs.** With the LLM deciding when to search, the 8B model anchored on order numbers and skipped policy search ("Can I return order 1234?" → no policy, no answer). The backend now always retrieves with the customer's own words; `search_policies` stays available for extra searches.
 - **Order ids must come from the customer.** `get_order` rejects ids that don't appear in the message or in a `get_latest_order` result, to block invented arguments.
@@ -59,6 +60,8 @@ Full-text search matched common words ("buy" in "Buy 5, get the cheapest free", 
 
 ### Agent, end to end (21 cases, vector retrieval, enriched chunks)
 
+Same numbers before and after moving the tools behind MCP (slice 2a).
+
 | Metric | Value |
 |---|---|
 | Citation precision (cited ids that are expected) | 0.91 (n=16) |
@@ -89,7 +92,8 @@ cd backend
 uv sync
 uv run python -m supportpilot.orders            # schema + seed orders
 uv run python -m supportpilot.ingest --questions  # chunk, enrich, embed
-uv run uvicorn supportpilot.api:app --port 8000
+uv run python -m supportpilot.mcp_server        # MCP server on :8001
+uv run uvicorn supportpilot.api:app --port 8000  # in another terminal
 
 cd ../frontend
 pnpm install && pnpm dev                        # http://localhost:3000
