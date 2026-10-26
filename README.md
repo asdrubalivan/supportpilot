@@ -1,6 +1,6 @@
 # SupportPilot
 
-A support agent for **Old Pages Books**, a fictional online store of classic books. It answers questions about the store's policies with citations to the exact passage, and looks up the customer's orders through a fixed tool. Everything runs locally on Ollama.
+A support agent for **Old Pages Books**, a fictional online store of classic books. It answers questions about the store's policies with citations to the exact passage, and looks up the customer's orders. Its tools are served by an **MCP server** (Model Context Protocol, Streamable HTTP) that the agent connects to as a client. Everything runs locally on Ollama.
 
 ![SupportPilot demo: a customer asks to return an order and gets a cited answer; another customer asks about the same order and is told nothing](demo/out/supportpilot.gif)
 
@@ -31,6 +31,23 @@ Design decisions worth knowing:
 - **Order ids must come from the customer.** `get_order` rejects ids that don't appear in the message or in a `get_latest_order` result, to block invented arguments.
 - **Prices are snapshotted per order line**, so refunds don't depend on today's catalog price.
 - **Vector search, not hybrid.** See the evals below.
+
+## MCP server
+
+`backend/supportpilot/mcp_server.py` exposes the agent's tools over MCP (official Python SDK, Streamable HTTP at `http://127.0.0.1:8001/mcp`):
+
+| Tool | What it does |
+|---|---|
+| `search_policies(query)` | Vector search over the policy chunks; returns ids to cite |
+| `get_order(order_id)` | One of the customer's orders, or `null` (missing and foreign orders look the same) |
+| `get_latest_order()` | The customer's most recent order |
+
+- **Identity rides on the connection.** The backend opens one MCP session per question with an `X-Customer-Id` header. No tool takes a customer id, so the model can't ask for someone else's orders.
+- **Read-only for now.** `cancel_order` waits for support approval (slice 2c).
+- **Not production auth.** The header isn't verified, so the server binds to localhost. Slice 2b replaces it with tokens signed by a local Keycloak (OIDC).
+- **Some checks stay in the client.** "The order id must appear in the customer's message" lives in the agent, because only the client sees the message. It stops invented ids, but it isn't a security boundary.
+
+Any MCP client can connect, e.g. the MCP Inspector: `npx @modelcontextprotocol/inspector`, URL `http://127.0.0.1:8001/mcp`, header `X-Customer-Id: 1`.
 
 ## Evals
 
@@ -114,4 +131,4 @@ The demo GIF is rebuilt from the running app: `cd demo && pnpm install && pnpm c
 
 ## Stack
 
-FastAPI · LlamaIndex · Postgres + pgvector · Ollama (`qwen3:8b`, `nomic-embed-text`) · Next.js.
+FastAPI · MCP (Python SDK, Streamable HTTP) · LlamaIndex · Postgres + pgvector · Ollama (`qwen3:8b`, `nomic-embed-text`) · Next.js.
