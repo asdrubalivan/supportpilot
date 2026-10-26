@@ -71,7 +71,7 @@
       "30"
     ],
     "must_not_include": [],
-    "answer": "The return window for your order is 30 days from the delivery date, which was September 16, 2026. Since it is now October 26, 2026, and 40 days have passed since delivery, you are no longer within the return window [returns.md#return-window].",
+    "answer": "The return window for your order is 30 days from the delivery date, which was September 16, 2026. Since it is now October 26, 2026, and 40 days have passed since delivery, you are no longer within the return window [returns.md#return-window]. \n\nYou cannot return this order as it is outside the allowed return period.",
     "citations": [
       "returns.md#return-window"
     ],
@@ -1168,7 +1168,7 @@
     ],
     "must_include": [],
     "must_not_include": [],
-    "answer": "Your most recent order (ID 1237) was shipped on 2026-10-24 and has not yet been delivered. Since the delivery date is required to determine the return window, and it is not yet known, you cannot return the order at this time. Once the delivery date is available, you can return the order within 30 days of that date [returns.md#return-window].",
+    "answer": "Your most recent order (ID 1237) was shipped on 2026-10-24 and has not yet been delivered. Since the delivery date is required to determine the return window, and it is not yet known, you cannot return the order at this time. Once the delivery date is available, you can return the book within 30 days of that date [returns.md#return-window].",
     "citations": [
       "returns.md#return-window"
     ],

@@ -14,6 +14,7 @@ import sys
 from supportpilot import config
 from supportpilot.agent import answer
 from supportpilot.retrieval import build_retriever
+from supportpilot.test_issuer import TestIssuer, linked_subjects, mcp_server
 
 EVALS_DIR = config.REPO_ROOT / "evals"
 RESULTS_DIR = EVALS_DIR / "results"
@@ -88,25 +89,39 @@ def check_answer(text: str, case: dict) -> bool:
 
 
 async def run_agent(cases: list[dict]) -> None:
-    details = []
-    for case in cases:
-        result = await answer(case["question"], case["customer_id"])
-        expected, cited = set(case["expected_ids"]), set(result.citations)
-        detail = {
-            **case,
-            **result.model_dump(),
-            "answer_pass": check_answer(result.answer, case),
-            "tools_pass": set(case["expected_tools"]) <= set(result.tools_called),
-            # Citation precision only applies where the case has a correct source to cite.
-            "citation_precision": len(cited & expected) / len(cited) if expected and cited else None,
-            "cited_expected": bool(cited & expected) if expected else None,
-            # No-info cases pass only if the agent cites nothing.
-            "abstention_pass": not cited if case["category"] == "no-info" else None,
-        }
-        details.append(detail)
-        print(f"{case['id']}: answer={detail['answer_pass']} tools={detail['tools_pass']} "
-              f"cited={result.citations}", file=sys.stderr)
+    # Each case's customer asks with a token from a throwaway issuer, through the real token check.
+    with (
+        TestIssuer() as issuer,
+        mcp_server(issuer) as url,
+        linked_subjects({c["customer_id"] for c in cases}) as subs,
+    ):
+        config.MCP_URL = url
+        details = []
+        for case in cases:
+            details.append(await run_agent_case(case, issuer.mint(subs[case["customer_id"]])))
+    report_agent(details)
 
+
+async def run_agent_case(case: dict, token: str) -> dict:
+    result = await answer(case["question"], token)
+    expected, cited = set(case["expected_ids"]), set(result.citations)
+    detail = {
+        **case,
+        **result.model_dump(),
+        "answer_pass": check_answer(result.answer, case),
+        "tools_pass": set(case["expected_tools"]) <= set(result.tools_called),
+        # Citation precision only applies where the case has a correct source to cite.
+        "citation_precision": len(cited & expected) / len(cited) if expected and cited else None,
+        "cited_expected": bool(cited & expected) if expected else None,
+        # No-info cases pass only if the agent cites nothing.
+        "abstention_pass": not cited if case["category"] == "no-info" else None,
+    }
+    print(f"{case['id']}: answer={detail['answer_pass']} tools={detail['tools_pass']} "
+          f"cited={result.citations}", file=sys.stderr)
+    return detail
+
+
+def report_agent(details: list[dict]) -> None:
     write_details("agent.json", details)
 
     def rate(key: str) -> str:

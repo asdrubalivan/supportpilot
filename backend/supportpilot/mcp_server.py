@@ -2,9 +2,8 @@
 
 Run with: uv run python -m supportpilot.mcp_server
 
-The customer comes from the X-Customer-Id header of the MCP connection, set by the caller's code,
-never from tool arguments the model writes. Until real auth exists, anyone who can reach this port can
-claim any customer, so it only listens on localhost.
+The customer comes from the bearer token on the MCP connection: an access token signed by the
+identity provider, mapped to a customer through identity_links. Never from tool arguments the model writes.
 """
 
 from functools import lru_cache
@@ -13,10 +12,9 @@ from mcp.server.mcpserver import Context, MCPServer
 from pydantic import BaseModel
 
 from supportpilot import config
+from supportpilot.auth import AuthError, find_customer, verify_token
 from supportpilot.orders import Order, get_latest_order, get_order
 from supportpilot.retrieval import build_retriever
-
-CUSTOMER_HEADER = "x-customer-id"
 
 server = MCPServer(name="supportpilot", instructions="Old Pages Books support tools (read-only).")
 
@@ -36,10 +34,14 @@ def get_retriever():
 
 def customer_id(ctx: Context) -> int:
     request = ctx.request_context.request
-    value = request.headers.get(CUSTOMER_HEADER) if request is not None else None
-    if value is None or not value.isdigit():
-        raise ValueError("Missing or invalid X-Customer-Id on the MCP connection.")
-    return int(value)
+    scheme, _, token = (request.headers.get("authorization", "") if request is not None else "").partition(" ")
+    if scheme.lower() != "bearer" or not token:
+        raise AuthError("Missing bearer token on the MCP connection.")
+    claims = verify_token(token)
+    # Linking happens at login; an unlinked identity has no orders to see.
+    if (customer := find_customer(claims["sub"])) is None:
+        raise AuthError("This identity is not linked to a customer.")
+    return customer
 
 
 @server.tool()

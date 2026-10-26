@@ -20,3 +20,8 @@ POLICY_TABLE = "policy_chunks"
 
 MCP_PORT = int(os.getenv("MCP_PORT", "8001"))
 MCP_URL = os.getenv("MCP_URL", f"http://127.0.0.1:{MCP_PORT}/mcp")
+
+# OIDC: tokens must be signed by this issuer's keys and issued for this audience (the client id).
+OIDC_ISSUER = os.getenv("OIDC_ISSUER", "http://localhost:8080/realms/oldpages")
+OIDC_AUDIENCE = os.getenv("OIDC_AUDIENCE", "supportpilot")
+OIDC_JWKS_URL = os.getenv("OIDC_JWKS_URL", f"{OIDC_ISSUER}/protocol/openid-connect/certs")
