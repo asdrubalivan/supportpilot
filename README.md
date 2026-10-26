@@ -2,6 +2,8 @@
 
 A support agent for **Old Pages Books**, a fictional online store of classic books. It answers questions about the store's policies with citations to the exact passage, and looks up the customer's orders through a fixed tool. Everything runs locally on Ollama.
 
+![SupportPilot demo: a customer asks to return an order and gets a cited answer; another customer asks about the same order and is told nothing](demo/out/supportpilot.gif)
+
 This is a learning lab (see [`AI_ASSISTED_DEVELOPMENT.md`](AI_ASSISTED_DEVELOPMENT.md)). Slice 1 is read-only and single-turn.
 
 ## How it works
@@ -103,6 +105,8 @@ uv run python -m supportpilot.evals agent        # full agent, ~5 minutes
 ```
 
 The frontend has a demo customer selector: Ada Reader owns orders 1234–1237, Basil Bookworm owns 1238.
+
+The demo GIF is rebuilt from the running app: `cd demo && pnpm install && pnpm capture && pnpm render && pnpm gif` (Remotion, real screenshots and real model answers).
 
 ## Stack
 
