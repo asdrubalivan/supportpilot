@@ -67,9 +67,9 @@ class TestIssuer:
 
 
 @contextmanager
-def mcp_server(issuer: TestIssuer, port: int = 8011):
-    """Run the MCP server in a subprocess that trusts `issuer`; yields its URL."""
-    env = {**os.environ, **issuer.env, "MCP_PORT": str(port)}
+def mcp_server(issuer: TestIssuer | None, port: int = 8011):
+    """Run the MCP server in a subprocess that trusts `issuer` (or Keycloak if None); yields its URL."""
+    env = {**os.environ, **(issuer.env if issuer else {}), "MCP_PORT": str(port)}
     proc = subprocess.Popen([sys.executable, "-m", "supportpilot.mcp_server"], env=env,
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:

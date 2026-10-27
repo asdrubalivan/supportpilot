@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS identity_links, order_items, orders, books, customers;
+DROP TABLE IF EXISTS sessions, login_attempts, identity_links, order_items, orders, books, customers;
 
 CREATE TABLE customers (
     -- Generated for customers created on first login; the seed sets its own ids.
@@ -47,4 +47,25 @@ CREATE TABLE identity_links (
     external_id text NOT NULL,
     linked_at   timestamptz NOT NULL DEFAULT now(),
     PRIMARY KEY (provider, external_id)
+);
+
+-- A login in progress: `state` and the PKCE verifier live here (server side), keyed by state and
+-- deleted on first use. The browser holds only the state, in a short-lived cookie.
+CREATE TABLE login_attempts (
+    state         text PRIMARY KEY,
+    code_verifier text NOT NULL,
+    expires_at    timestamptz NOT NULL
+);
+
+-- Web sessions. The browser cookie is `id` (random, opaque); the tokens never leave the backend.
+-- Deleting a row ends that session immediately. Tokens are plain text: fine for a local lab,
+-- encrypt them at rest before anything real.
+CREATE TABLE sessions (
+    id                text PRIMARY KEY,
+    customer_id       integer NOT NULL REFERENCES customers (id),
+    access_token      text NOT NULL,
+    refresh_token     text NOT NULL,
+    access_expires_at timestamptz NOT NULL,
+    expires_at        timestamptz NOT NULL,
+    created_at        timestamptz NOT NULL DEFAULT now()
 );
