@@ -1,8 +1,10 @@
 -- Dates are relative to now() so golden cases like "delivered 40 days ago" stay true over time.
 
 INSERT INTO customers (id, name, email) VALUES
-    (1, 'Ada Reader', 'ada@example.com'),        -- the demo customer (fixed customer_id in slice 1)
+    (1, 'Ada Reader', 'ada@example.com'),        -- same emails as the Keycloak realm users
     (2, 'Basil Bookworm', 'basil@example.com');
+-- Customers created on first login get ids after the seeded ones.
+SELECT setval(pg_get_serial_sequence('customers', 'id'), 100);
 
 INSERT INTO books (id, title, author, section, is_signed, price, stock) VALUES
     (1,  'Twenty Thousand Leagues Under the Seas', 'Jules Verne', 'adventure-sci-fi', false, 15.00, 12),

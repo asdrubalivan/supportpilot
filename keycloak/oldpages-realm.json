@@ -1,0 +1,65 @@
+{
+  "realm": "oldpages",
+  "enabled": true,
+  "displayName": "Old Pages Books",
+  "registrationAllowed": true,
+  "verifyEmail": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": false,
+  "smtpServer": {
+    "host": "mailpit",
+    "port": "1025",
+    "from": "support@oldpages.example",
+    "fromDisplayName": "Old Pages Books"
+  },
+  "clients": [
+    {
+      "clientId": "supportpilot",
+      "name": "SupportPilot",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "supportpilot-dev-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "redirectUris": ["http://localhost:8000/auth/callback"],
+      "webOrigins": ["http://localhost:3000"],
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:3000/*"
+      },
+      "protocolMappers": [
+        {
+          "name": "audience-supportpilot",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "supportpilot",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "ada",
+      "email": "ada@example.com",
+      "emailVerified": true,
+      "firstName": "Ada",
+      "lastName": "Reader",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "ada", "temporary": false }]
+    },
+    {
+      "username": "basil",
+      "email": "basil@example.com",
+      "emailVerified": true,
+      "firstName": "Basil",
+      "lastName": "Bookworm",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "basil", "temporary": false }]
+    }
+  ]
+}

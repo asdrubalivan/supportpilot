@@ -71,7 +71,7 @@
       "30"
     ],
     "must_not_include": [],
-    "answer": "The return window for your order is 30 days from the delivery date, which was September 16, 2026. Since it is now October 26, 2026, and 40 days have passed since delivery, you are no longer within the return window [returns.md#return-window].",
+    "answer": "The return window for your order 1234 has expired, as it was delivered on 2026-09-17, and the return window is 30 days from the delivery date [returns.md#return-window]. Since the return window has passed, you are no longer eligible for a return.",
     "citations": [
       "returns.md#return-window"
     ],
@@ -134,10 +134,9 @@
     "must_not_include": [
       "can be returned"
     ],
-    "answer": "The signed Hemingway book (The Old Man and the Sea (signed)) from order 1235 cannot be returned because signed copies are non-returnable items [returns.md#non-returnable-items]. Additionally, the book was delivered 10 days ago, which is beyond the 7-day window for damaged books [returns.md#damaged-books].",
+    "answer": "The signed Hemingway book (The Old Man and the Sea (signed)) from order 1235 cannot be returned because signed copies are non-returnable items [returns.md#non-returnable-items]. This applies even though the return window is still open.",
     "citations": [
-      "returns.md#non-returnable-items",
-      "returns.md#damaged-books"
+      "returns.md#non-returnable-items"
     ],
     "invalid_citations": [],
     "tools_called": [
@@ -177,7 +176,7 @@
     ],
     "answer_pass": true,
     "tools_pass": true,
-    "citation_precision": 0.5,
+    "citation_precision": 1.0,
     "cited_expected": true,
     "abstention_pass": null
   },
@@ -600,10 +599,10 @@
       "shipped"
     ],
     "must_not_include": [],
-    "answer": "Your order 1237 has been shipped via standard shipping. The tracking information is available in your account, and the delivery date will be shown once the order is delivered [shipping.md#tracking]. The shipping cost was $4.99 [shipping.md#shipping-options].",
+    "answer": "Your order 1237 has been shipped using standard shipping, which typically takes 3 to 5 business days [shipping.md#shipping-options]. The tracking number was sent to your email when the order shipped. The delivery date is not yet available, but you can check the order status in your account for updates [shipping.md#tracking].",
     "citations": [
-      "shipping.md#tracking",
-      "shipping.md#shipping-options"
+      "shipping.md#shipping-options",
+      "shipping.md#tracking"
     ],
     "invalid_citations": [],
     "tools_called": [
@@ -1168,7 +1167,7 @@
     ],
     "must_include": [],
     "must_not_include": [],
-    "answer": "Your most recent order (ID 1237) was shipped on 2026-10-24 and has not yet been delivered. Since the delivery date is required to determine the return window, and it is not yet known, you cannot return the order at this time. Once the delivery date is available, you can return the order within 30 days of that date [returns.md#return-window].",
+    "answer": "I cannot confirm if you can return your last order because the delivery date is not available. Returns are accepted within 30 days of the delivery date [returns.md#return-window]. Please check the delivery date in your order tracking to determine if your return is eligible.",
     "citations": [
       "returns.md#return-window"
     ],
@@ -1212,6 +1211,248 @@
     "tools_pass": true,
     "citation_precision": 1.0,
     "cited_expected": true,
+    "abstention_pass": null
+  },
+  {
+    "id": "g22",
+    "category": "policy+order",
+    "question": "How many days late am I to return order 1234?",
+    "customer_id": 1,
+    "order_id": 1234,
+    "expected_ids": [],
+    "expected_tools": [
+      "get_order"
+    ],
+    "must_include": [
+      "{days_over_window} days"
+    ],
+    "must_not_include": [
+      "{days_since_delivery} days late",
+      "{days_since_delivery} days past",
+      "{days_since_delivery} days over"
+    ],
+    "answer": "The return window for your order 1234 has closed. You are 11 days late to return the book, as the return window was 30 days from the delivery date, and it has now passed [returns.md#return-window].",
+    "citations": [
+      "returns.md#return-window"
+    ],
+    "invalid_citations": [],
+    "tools_called": [
+      "get_order"
+    ],
+    "retrieved_ids": [
+      "returns.md#return-window",
+      "shipping.md#shipping-options",
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      }
+    ],
+    "answer_pass": true,
+    "tools_pass": true,
+    "citation_precision": null,
+    "cited_expected": null,
+    "abstention_pass": null
+  },
+  {
+    "id": "g23",
+    "category": "order",
+    "question": "What is the status of my most recent order?",
+    "customer_id": 1,
+    "expected_ids": [],
+    "expected_tools": [
+      "get_latest_order"
+    ],
+    "must_include": [
+      "1237",
+      "shipped"
+    ],
+    "must_not_include": [],
+    "answer": "Your most recent order (ID 1237) has been shipped using standard shipping. The shipping cost was $4.99, and the order was shipped on 2026-10-25. The delivery status is currently \"shipped,\" and there is no delivery date yet [shipping.md#tracking].",
+    "citations": [
+      "shipping.md#tracking"
+    ],
+    "invalid_citations": [],
+    "tools_called": [
+      "get_latest_order"
+    ],
+    "retrieved_ids": [
+      "shipping.md#tracking",
+      "returns.md#return-window",
+      "shipping.md#shipping-options",
+      "returns.md#damaged-books"
+    ],
+    "passages": [
+      {
+        "id": "shipping.md#tracking",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Tracking",
+        "text": "Every order includes a tracking number, sent by email when the order ships. The order status in your account shows whether the order is processing, shipped, or delivered, and the delivery date once delivered."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      }
+    ],
+    "answer_pass": true,
+    "tools_pass": true,
+    "citation_precision": null,
+    "cited_expected": null,
+    "abstention_pass": null
+  },
+  {
+    "id": "g24",
+    "category": "partial",
+    "question": "How long do I have to return a book, and do you offer gift wrapping?",
+    "customer_id": 1,
+    "expected_ids": [],
+    "expected_tools": [],
+    "must_include": [
+      "30 days"
+    ],
+    "must_not_include": [],
+    "answer": "The return window for a book is 30 days from the delivery date [returns.md#return-window]. Regarding gift wrapping, the provided policies do not mention this service. I don't have information about that.",
+    "citations": [
+      "returns.md#return-window"
+    ],
+    "invalid_citations": [],
+    "tools_called": [],
+    "retrieved_ids": [
+      "returns.md#non-returnable-items",
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      },
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      }
+    ],
+    "answer_pass": true,
+    "tools_pass": true,
+    "citation_precision": null,
+    "cited_expected": null,
+    "abstention_pass": null
+  },
+  {
+    "id": "g25",
+    "category": "policy+order",
+    "question": "How many days do I have left to return order 1235?",
+    "customer_id": 1,
+    "order_id": 1235,
+    "expected_ids": [],
+    "expected_tools": [
+      "get_order"
+    ],
+    "must_include": [
+      "{days_left_in_window} days"
+    ],
+    "must_not_include": [
+      "{days_since_delivery} days left",
+      "{days_since_delivery} days remaining"
+    ],
+    "answer": "You have 19 days left to return the order [returns.md#return-window].",
+    "citations": [
+      "returns.md#return-window"
+    ],
+    "invalid_citations": [],
+    "tools_called": [
+      "get_order"
+    ],
+    "retrieved_ids": [
+      "returns.md#return-window",
+      "returns.md#damaged-books",
+      "returns.md#refunds",
+      "returns.md#non-returnable-items"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      },
+      {
+        "id": "returns.md#non-returnable-items",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Non-returnable items",
+        "text": "Signed copies cannot be returned, because each one is a unique item. This applies even within the 30-day return window."
+      }
+    ],
+    "answer_pass": true,
+    "tools_pass": true,
+    "citation_precision": null,
+    "cited_expected": null,
     "abstention_pass": null
   }
 ]

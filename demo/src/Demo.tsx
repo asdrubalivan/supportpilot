@@ -5,7 +5,7 @@ import boxes from "../public/shots/boxes.json";
 const { fontFamily } = loadFont("normal", { weights: ["400", "600", "800"], subsets: ["latin"] });
 
 export const FPS = 30;
-export const DURATION = 20 * FPS;
+export const DURATION = 19.5 * FPS;
 
 const C = {
   buckram: "#17352b",
@@ -25,7 +25,7 @@ const ease = Easing.bezier(0.16, 1, 0.3, 1);
 const T = {
   titleEnd: 45,
   a: { start: 45, typeStart: 62, typeEnd: 100, click: 112, answer: 140, zoomAnswer: 165, zoomShelf: 225, end: 300 },
-  b: { start: 300, clickCard: 318, typeStart: 335, typeEnd: 362, click: 372, answer: 400, zoom: 420, end: 510 },
+  b: { start: 300, typeStart: 318, typeEnd: 345, click: 355, answer: 383, zoom: 403, end: 495 },
 };
 
 /** Keyframed value: [[frame, value], ...] with eased interpolation between them. */
@@ -139,23 +139,20 @@ function SceneAda() {
 function SceneBasil() {
   const frame = useCurrentFrame();
   const b = T.b;
-  const card = center(B["basilCard"]);
   const textarea = center(B["b-textarea"]);
   const ask = center(B["b-ask"]);
   const shot =
-    frame < b.clickCard
-      ? "a-answer"
-      : frame < b.typeStart
-        ? "b-empty"
-        : frame < b.click
-          ? typeFrame("b", frame, b.typeStart, b.typeEnd)
-          : frame < b.answer
-            ? "b-loading"
-            : "b-answer";
+    frame < b.typeStart
+      ? "b-empty"
+      : frame < b.click
+        ? typeFrame("b", frame, b.typeStart, b.typeEnd)
+        : frame < b.answer
+          ? "b-loading"
+          : "b-answer";
 
   const cursor: Point = [
-    track(frame, [[b.start, 900], [b.clickCard - 2, card[0]], [b.typeStart - 2, textarea[0]], [b.typeEnd, textarea[0]], [b.click - 2, ask[0]]]),
-    track(frame, [[b.start, 500], [b.clickCard - 2, card[1]], [b.typeStart - 2, textarea[1]], [b.typeEnd, textarea[1]], [b.click - 2, ask[1]]]),
+    track(frame, [[b.start, 900], [b.typeStart - 2, textarea[0]], [b.typeEnd, textarea[0]], [b.click - 2, ask[0]]]),
+    track(frame, [[b.start, 500], [b.typeStart - 2, textarea[1]], [b.typeEnd, textarea[1]], [b.click - 2, ask[1]]]),
   ];
   const answer = center(B["b-answerText"]);
   const focus: Point = [answer[0] - 40, answer[1] + 20];
@@ -169,10 +166,10 @@ function SceneBasil() {
       <Camera scale={scale} focus={[fx, fy]}>
         <Shot name={shot} />
         <div style={{ opacity: cursorOpacity }}>
-          <Cursor at={cursor} clickAt={[b.clickCard, b.click]} />
+          <Cursor at={cursor} clickAt={[b.click]} />
         </div>
       </Camera>
-      <Caption text="Orders are scoped to the signed-in customer" from={b.clickCard} to={b.end} />
+      <Caption text="Orders are scoped to the signed-in customer" from={b.start + 10} to={b.end} />
     </AbsoluteFill>
   );
 }

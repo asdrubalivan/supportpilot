@@ -2,11 +2,12 @@
 
 The tools live in the MCP server (supportpilot.mcp_server); this agent is its client. Start the server first.
 
-Try it with: uv run python -m supportpilot.agent "Can I return order 1234?"
+Try it with: ACCESS_TOKEN=... uv run python -m supportpilot.agent "Can I return order 1234?"
 """
 
 import asyncio
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -21,7 +22,6 @@ from mcp.client.streamable_http import streamable_http_client
 from pydantic import BaseModel
 
 from supportpilot import config
-from supportpilot.mcp_server import CUSTOMER_HEADER
 
 MAX_ITERATIONS = 5
 NO_INFO = "I don't have information about that."
@@ -133,10 +133,10 @@ def build_tools(client: Client, message: str, passages: dict[str, Passage]) -> l
     ]
 
 
-async def answer(message: str, customer_id: int) -> AgentResult:
-    # One MCP session per question, with the customer set by our code on the connection.
+async def answer(message: str, access_token: str) -> AgentResult:
+    # One MCP session per question, authenticated with the customer's access token on the connection.
     async with (
-        httpx2.AsyncClient(headers={CUSTOMER_HEADER: str(customer_id)}, timeout=120.0) as http,
+        httpx2.AsyncClient(headers={"Authorization": f"Bearer {access_token}"}, timeout=120.0) as http,
         Client(streamable_http_client(config.MCP_URL, http_client=http)) as client,
     ):
         return await run_agent(client, message)
@@ -176,5 +176,5 @@ async def run_agent(client: Client, message: str) -> AgentResult:
 
 
 if __name__ == "__main__":
-    result = asyncio.run(answer(" ".join(sys.argv[1:]), customer_id=1))
+    result = asyncio.run(answer(" ".join(sys.argv[1:]), os.environ["ACCESS_TOKEN"]))
     print(result.model_dump_json(indent=2))
