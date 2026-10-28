@@ -7,6 +7,9 @@ import {
   CLOTHS,
   CUSTOMERS,
   ChatResult,
+  LOGIN_URL,
+  LOGOUT_URL,
+  Me,
   Passage,
   TOOL_LABELS,
   clothFor,
@@ -34,8 +37,117 @@ const RANK_RAMP = [100, 92, 85, 79, 74, 70, 67, 65];
 
 type Status = "idle" | "loading" | "done" | "error";
 
-export default function HelpDesk() {
-  const [customerId, setCustomerId] = useState(1);
+type Notice = "login_error" | "logged_out" | "unavailable";
+type Session = { kind: "checking" } | { kind: "signed-in"; me: Me } | { kind: "signed-out"; notice: Notice };
+
+const NOTICES: Record<Notice, { title: string; body: string }> = {
+  login_error: {
+    title: "Sign-in didn't work",
+    body: "We couldn't sign you in. Try again; if it keeps failing, check that your email address is verified.",
+  },
+  logged_out: {
+    title: "Session closed",
+    body: "You've signed out of the help desk. Sign in again whenever you want to ask something.",
+  },
+  unavailable: {
+    title: "Help desk unavailable",
+    body: `Couldn't reach the help desk at ${API_URL}. Start the backend with "uv run uvicorn supportpilot.api:app" and try again.`,
+  },
+};
+
+export default function Page() {
+  const [session, setSession] = useState<Session>({ kind: "checking" });
+
+  useEffect(() => {
+    let cancelled = false;
+    // The query string only says what to tell the user; whether they are signed in is decided by /me.
+    const params = new URLSearchParams(window.location.search);
+    const hint: Notice | null = params.has("login_error") ? "login_error" : params.has("logged_out") ? "logged_out" : null;
+
+    fetch(`${API_URL}/me`, { credentials: "include" })
+      .then(async (response) => {
+        if (cancelled) return;
+        if (response.ok) return setSession({ kind: "signed-in", me: await response.json() });
+        if (response.status !== 401) throw new Error(`/me answered ${response.status}`);
+        // Not signed in. Redirecting after a failed login would loop, so a hint means: show it and wait.
+        if (hint) setSession({ kind: "signed-out", notice: hint });
+        else window.location.assign(LOGIN_URL);
+      })
+      .catch(() => {
+        if (!cancelled) setSession({ kind: "signed-out", notice: "unavailable" });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const me = session.kind === "signed-in" ? session.me : null;
+
+  return (
+    <div className="page">
+      <header className="rail">
+        <div className="brand">
+          <span className="brand-name">Old Pages Books</span>
+          <span className="brand-desk">Help desk</span>
+        </div>
+        {me && (
+          <div className="session">
+            <div className="session-card">
+              <span className="card-no">No. {me.customer_id}</span>
+              <span className="card-name">{me.name}</span>
+            </div>
+            {/* A real form post, not fetch: the backend answers with a redirect to Keycloak's logout. */}
+            <form method="post" action={LOGOUT_URL}>
+              <button type="submit" className="sign-out">
+                Sign out
+              </button>
+            </form>
+          </div>
+        )}
+      </header>
+
+      {me ? <Desk me={me} /> : <Gate session={session} />}
+
+      <footer className="colophon">
+        Old Pages Books is a fictional store. SupportPilot answers with a local 8B model and can be wrong; check the
+        cited passage.
+      </footer>
+    </div>
+  );
+}
+
+function Gate({ session }: { session: Session }) {
+  if (session.kind === "signed-in") return null;
+  if (session.kind === "checking") {
+    return (
+      <main className="gate">
+        <p className="gate-status" role="status">
+          <Loader2 className="spin" size={18} aria-hidden /> Checking your session…
+        </p>
+      </main>
+    );
+  }
+  const { title, body } = NOTICES[session.notice];
+  return (
+    <main className="gate">
+      <div className="notice" role={session.notice === "logged_out" ? "status" : "alert"}>
+        <h1>{title}</h1>
+        <p>{body}</p>
+        {session.notice === "unavailable" ? (
+          <button type="button" className="ask-button" onClick={() => window.location.reload()}>
+            Try again
+          </button>
+        ) : (
+          <a className="ask-button" href={LOGIN_URL}>
+            Sign in <ArrowRight size={18} aria-hidden />
+          </a>
+        )}
+      </div>
+    </main>
+  );
+}
+
+function Desk({ me }: { me: Me }) {
   const [question, setQuestion] = useState("");
   const [asked, setAsked] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -75,11 +187,18 @@ export default function HelpDesk() {
     setError("");
     requestAnimationFrame(revealPanel);
     try {
+      // Who is asking comes from the session cookie, not from the body.
       const response = await fetch(`${API_URL}/chat`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, customer_id: customerId }),
+        body: JSON.stringify({ message }),
       });
+      if (response.status === 401) {
+        // The session ended while the page was open.
+        window.location.assign(LOGIN_URL);
+        return;
+      }
       if (!response.ok) throw new Error(`The help desk answered with status ${response.status}.`);
       const data: ChatResult = await response.json();
       setResult(data);
@@ -102,46 +221,21 @@ export default function HelpDesk() {
     ask(question);
   }
 
-  function switchCustomer(id: number) {
-    setCustomerId(id);
-    setResult(null);
-    setStatus("idle");
-    setOpenId(null);
-  }
-
-  const customer = CUSTOMERS.find((c) => c.id === customerId)!;
+  const customer = CUSTOMERS.find((c) => c.id === me.customer_id);
 
   return (
-    <div className="page">
-      <header className="rail">
-        <div className="brand">
-          <span className="brand-name">Old Pages Books</span>
-          <span className="brand-desk">Help desk</span>
-        </div>
-        <div className="customer-switch" role="radiogroup" aria-label="Customer (demo)">
-          <span className="switch-label">Customer · demo</span>
-          {CUSTOMERS.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              role="radio"
-              aria-checked={c.id === customerId}
-              className="library-card"
-              onClick={() => switchCustomer(c.id)}
-            >
-              <span className="card-no">No. {c.id}</span>
-              <span className="card-name">{c.name}</span>
-            </button>
-          ))}
-        </div>
-      </header>
-
+    <>
       <main className="desk">
         <section className="ask" aria-labelledby="ask-heading">
           <h1 id="ask-heading">Ask about returns, shipping, promotions, or your orders</h1>
           <p className="ask-note">
-            Signed in as <strong>{customer.name}</strong>, who owns order{customer.orders.includes("–") ? "s" : ""}{" "}
-            <span className="num">{customer.orders}</span>. Orders of other customers stay hidden.
+            Signed in as <strong>{me.name}</strong>
+            {customer && (
+              <>
+                , who owns order{customer.orders.includes("–") ? "s" : ""} <span className="num">{customer.orders}</span>
+              </>
+            )}
+            . Orders of other customers stay hidden.
           </p>
 
           <form onSubmit={onSubmit} className="ask-form">
@@ -171,7 +265,7 @@ export default function HelpDesk() {
           <div className="examples">
             <h2>Try one of these</h2>
             <ul>
-              {EXAMPLES[customerId].map((example) => (
+              {(EXAMPLES[me.customer_id] ?? []).map((example) => (
                 <li key={example}>
                   <button
                     type="button"
@@ -206,12 +300,7 @@ export default function HelpDesk() {
           )}
         </section>
       </main>
-
-      <footer className="colophon">
-        Old Pages Books is a fictional store. SupportPilot answers with a local 8B model and can be wrong; check the
-        cited passage.
-      </footer>
-    </div>
+    </>
   );
 }
 

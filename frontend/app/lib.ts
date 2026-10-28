@@ -11,6 +11,13 @@ export type ChatResult = {
   passages: Passage[];
 };
 
+export const LOGIN_URL = `${API_URL}/auth/login`;
+export const LOGOUT_URL = `${API_URL}/auth/logout`;
+
+// Who the backend says is signed in (GET /me).
+export type Me = { customer_id: number; name: string };
+
+// Demo data: which orders each seeded customer owns, looked up by the customer_id that /me returns.
 export const CUSTOMERS = [
   { id: 1, name: "Ada Reader", orders: "1234–1237" },
   { id: 2, name: "Basil Bookworm", orders: "1238" },
