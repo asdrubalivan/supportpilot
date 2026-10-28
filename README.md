@@ -81,7 +81,7 @@ Known limits (it is a lab):
 
 ## Evals
 
-All metrics are deterministic. `evals/golden.jsonl` has 24 cases (policy, policy+order, order, partial answer, no-info, security); 16 of them have expected chunks.
+All metrics are deterministic. `evals/golden.jsonl` has 25 cases (policy, policy+order, order, partial answer, no-info, security); 16 of them have expected chunks.
 
 ### Retrieval: recall@k on the golden cases (16 cases)
 
@@ -105,24 +105,28 @@ The golden cases didn't separate vector from hybrid after enrichment, so we adde
 
 Full-text search matched common words ("buy" in "Buy 5, get the cheapest free", "get") and pushed the right passage out of the top 4, and it doesn't see the generated questions. **The default is vector search.** With 8 intents per column, read this as directional, not conclusive.
 
-### Agent, end to end (24 cases, vector retrieval, enriched chunks)
+### Agent, end to end (25 cases, vector retrieval, enriched chunks)
 
-Re-run after slice 2b (every question now goes through a signed token that the MCP server verifies) and with three new cases (`g22`, `g23`, `g24`): the same results as before the MCP and the auth changes, except citation precision, 0.91 → 0.94, and `g22`, which fails. The local model is not deterministic, so read that difference as noise. The evals mint their own tokens with a throwaway key instead of logging in through Keycloak.
+Re-run after slice 2b (every question now goes through a signed token that the MCP server verifies), with four new cases (`g22` to `g25`) and with `return_window_days_left` in the order lookup (see below). Every check passes; citation precision is 0.91 → 0.94 against the slice 1 run. The evals mint their own tokens with a throwaway key instead of logging in through Keycloak. The system prompt contains today's date, so the same question can get a different answer on a different day.
 
 | Metric | Value |
 |---|---|
 | Citation precision (cited ids that are expected) | 0.94 (n=16) |
 | Cited at least one expected chunk | 1.00 (n=16) |
 | Abstention on no-info questions (cites nothing) | 1.00 (n=2) |
-| Tool accuracy (expected tools were called) | 1.00 (n=24) |
-| Answer checks (must / must not include) | 0.96 (n=24) |
+| Tool accuracy (expected tools were called) | 1.00 (n=25) |
+| Answer checks (must / must not include) | 1.00 (n=25) |
 | Invalid citations (cited but never retrieved) | 0 |
 
-### Known failure: `g22`
+### The date confusion (`g22`) and `return_window_days_left`
 
-Asked "How many days late am I to return order 1234?", the agent answers "you are 41 days past the 30-day return window". 41 is how long ago the order was delivered (`days_since_delivery`); the right answer is 11 days past the window. The case stays red on purpose. Its expected numbers are placeholders (`{days_over_window}`) that `check_answer` fills from the database, because the seed dates are relative to when the data was loaded.
+Asked "How many days late am I to return order 1234?", the agent first answered "you are 41 days past the 30-day return window". 41 is how long ago the order was delivered (`days_since_delivery`); the right answer is 11. The expected numbers in the case are placeholders (`{days_over_window}`) that `check_answer` fills from the database, because the seed dates are relative to when the data was loaded.
 
 A system-prompt rule for it ("subtract the limit from `days_since_delivery`") did not fix `g22` and made `g06` stop citing `returns.md#refunds`, so it was reverted. That is the reason to run the full set after every prompt change, not just the case being fixed.
+
+What fixed it was handing the agent the subtraction already done: `get_order` now returns `return_window_days_left`, computed from `RETURN_WINDOW_DAYS` in `config.py`. The return rule still lives in the policy documents, so a test fails if that constant stops matching `policies/returns.md`.
+
+Giving the agent `return_window_days_left`, computed in the order lookup, reduced two errors we saw without it. The agent retrieved the correct 30-day policy but did the subtraction wrong (it answered "41 days late" where the answer is 11). On an order delivered 13 days ago, 2 of 3 answers were wrong, for example saying it could no longer be returned. Each check was a single call on a few orders and dates, so this shows the field helps, not by how much.
 
 ### What these numbers don't tell you
 
