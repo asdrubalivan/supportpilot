@@ -1213,5 +1213,69 @@
     "citation_precision": 1.0,
     "cited_expected": true,
     "abstention_pass": null
+  },
+  {
+    "id": "g22",
+    "category": "policy+order",
+    "question": "How many days late am I to return order 1234?",
+    "customer_id": 1,
+    "order_id": 1234,
+    "expected_ids": [],
+    "expected_tools": [
+      "get_order"
+    ],
+    "must_include": [
+      "{days_over_window} days"
+    ],
+    "must_not_include": [
+      "{days_since_delivery} days late",
+      "{days_since_delivery} days past",
+      "{days_since_delivery} days over"
+    ],
+    "answer": "The return window for your order is 30 days from the delivery date. Since your order was delivered on 2026-09-17, you are 41 days late to return it [returns.md#return-window].",
+    "citations": [
+      "returns.md#return-window"
+    ],
+    "invalid_citations": [],
+    "tools_called": [
+      "get_order"
+    ],
+    "retrieved_ids": [
+      "returns.md#return-window",
+      "shipping.md#shipping-options",
+      "returns.md#damaged-books",
+      "returns.md#refunds"
+    ],
+    "passages": [
+      {
+        "id": "returns.md#return-window",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Return window",
+        "text": "You may return any eligible book within 30 days of the delivery date. The delivery date is the date shown in your order tracking, not the purchase date. Returns requested after 30 days from delivery are not accepted."
+      },
+      {
+        "id": "shipping.md#shipping-options",
+        "document": "Shipping \u2014 Old Pages Books",
+        "section": "Shipping options",
+        "text": "- **Standard shipping**: 3 to 5 business days, $4.99.\n- **Express shipping**: 1 to 2 business days, $12.99.\n\nDelivery times start counting when the order ships, not when it is placed. Orders usually ship within 1 business day."
+      },
+      {
+        "id": "returns.md#damaged-books",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Damaged books",
+        "text": "If a book arrives damaged, report it within 7 days of delivery with a photo. Books that arrive damaged are accepted for return or replacement even if you report them after the standard return conditions would otherwise apply. Books damaged by the customer after delivery are not accepted for return."
+      },
+      {
+        "id": "returns.md#refunds",
+        "document": "Returns and Refunds \u2014 Old Pages Books",
+        "section": "Refunds",
+        "text": "Refunds go to the original payment method and take 5 to 10 business days to appear after we receive the returned book. Shipping costs are not refunded, except for books that arrived damaged."
+      }
+    ],
+    "answer_pass": false,
+    "tools_pass": true,
+    "citation_precision": null,
+    "cited_expected": null,
+    "abstention_pass": null
   }
 ]

@@ -13,6 +13,7 @@ import sys
 
 from supportpilot import config
 from supportpilot.agent import answer
+from supportpilot.orders import get_order
 from supportpilot.retrieval import build_retriever
 from supportpilot.test_issuer import TestIssuer, linked_subjects, mcp_server
 
@@ -20,6 +21,8 @@ EVALS_DIR = config.REPO_ROOT / "evals"
 RESULTS_DIR = EVALS_DIR / "results"
 K_VALUES = [1, 2, 4, 8]
 MODES = ["vector", "hybrid"]
+# What policies/returns.md says. Only used to turn days_since_delivery into days_over_window in the checks.
+RETURN_WINDOW_DAYS = 30
 
 
 def load_cases() -> list[dict]:
@@ -81,11 +84,23 @@ def run_robustness(k: int = 4) -> None:
     write_details("robustness.json", details)
 
 
+def order_facts(case: dict) -> dict[str, int]:
+    """Values for the {placeholders} in a case's checks, from the order the case is about.
+
+    The seed dates are relative to when the database was loaded, so a number such as "41 days" is only
+    true on one day of the week; the checks ask the database instead of hard-coding it.
+    """
+    order = get_order(case["order_id"], case["customer_id"])
+    days = order.days_since_delivery
+    return {"days_since_delivery": days, "days_over_window": days - RETURN_WINDOW_DAYS}
+
+
 def check_answer(text: str, case: dict) -> bool:
     text = text.lower()
-    return all(s.lower() in text for s in case["must_include"]) and not any(
-        s.lower() in text for s in case["must_not_include"]
-    )
+    facts = order_facts(case) if "order_id" in case else {}
+    must_include = [s.format(**facts) for s in case["must_include"]]
+    must_not_include = [s.format(**facts) for s in case["must_not_include"]]
+    return all(s.lower() in text for s in must_include) and not any(s.lower() in text for s in must_not_include)
 
 
 async def run_agent(cases: list[dict]) -> None:
