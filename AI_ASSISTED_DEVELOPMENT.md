@@ -63,3 +63,37 @@ SupportPilot is a learning lab. It was built with Claude Code in a "learn while 
 - The AI wrote the MCP server, the client wiring, and these docs; I reviewed the design and the eval results.
 - I needed explanations, diagrams, and an ELI5 for the OAuth account-linking flow (I mixed up `state`, `code`, and Slack signatures), for where identity should travel, and for why the order-id check lives in the agent (only the client sees the message, so it's not a security boundary).
 - I chose to exclude `create_order` and to require approval for it before fully stating why.
+
+## Slice 2b: Keycloak login, sessions and logout (2026-10-26 to 2026-10-27)
+
+### Decisions I made
+
+- **Real auth in this slice** so I wouldn't redo the work later; OAuth/OIDC with a local Keycloak, partly as a learning goal.
+- **Linking a login to a customer:** the first login links by a *verified* email, afterwards by `(provider, sub)` and never by email again. The `identity_links` table is keyed by `(provider, external_id)` so Slack can be another provider later. Self-registration is on and creates a customer with no orders, which is safe only because the email must be verified. Mailpit catches the verification emails locally.
+- **Evals don't get an auth bypass.** A "trust the header" mode would let anyone impersonate any customer if it was left on. The evals mint their own tokens with a throwaway key and go through the same verifier; one smoke test uses a real Keycloak token.
+- **Sessions:** the browser gets an opaque random id in an HttpOnly cookie, not a JWT, so a session can be revoked by deleting a row. Tokens stay in the backend.
+- **Logout also ends Keycloak's session** (RP-initiated logout). Our session is deleted first, then the browser is sent to Keycloak, and it lands on `/?logged_out=1` with a "session closed" message and no auto-redirect.
+- **`sp_session` is SameSite=Strict.** The page and the backend are the same site, so it costs nothing. `sp_login` stays Lax on purpose: Keycloak starts the callback navigation.
+- **Frontend:** no session means redirect to login; a failed login shows a message and does not redirect (it would loop); the selector is gone; a 401 in the middle of a conversation goes back to login; `/chat` stops sending `customer_id`.
+- **Revocation:** a ~4.5 minute window is fine for a bookstore. For money I would use a short token life plus introspection on the critical operations.
+
+### What I understood
+
+- The browser never gets the tokens: the backend exchanges the code (with the client secret and the PKCE verifier) and keeps them.
+- The MCP server can't be fooled by a forged token because only Keycloak holds the signing key, and the verifier takes the public key from the issuer's JWKS in our config, not from the token.
+- `email_verified` is what stops an attacker who registers with a victim's email. Linking happens once, at login, not in the MCP, because tool calls come from a non-deterministic model.
+- `is not True` instead of `not claims.get(...)`, because the string `"false"` is truthy in Python.
+- HttpOnly blocks reading, not sending. SameSite decides whether the browser *sends* a cookie, based on who started the request. A CSRF token and SameSite are two independent defenses.
+- Verifying a token locally means the MCP can't see that a user was disabled; the refresh at `current_session` is where the backend finds out.
+
+### What I left to the AI or needed help with
+
+- The AI wrote all the code and tests (auth, login, sessions, logout, frontend), plus the Keycloak realm file. It also added **one thing beyond what I approved**: the `sp_login` cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through.
+- Where my first answer was weak and needed hints, diagrams or demos:
+  - asymmetric signatures and `kid` (I needed a hands-on sign-with-A/verify-with-B demo);
+  - why the MCP must not call `link_identity` (four rounds; I first said "the MCP needs the customer to exist", which is a precondition, not a reason);
+  - read vs send: HttpOnly vs SameSite vs CORS, and a cookie vs a CSRF token (I needed a diagram, an interactive artifact and an analogy);
+  - why not verifying the `id_token` at logout is safe: I said Keycloak checks it and the odds of a match are one in billions. That is wrong for a signed JWT; the odds argument fits opaque random ids like `sp_session`. **Still open:** a hands-on demo (edit an `id_token`, send it to Keycloak);
+  - who stops a disabled user and when: I first said Keycloak and the MCP would handle it; I only saw that the MCP never asks Keycloak after reading `verify_token` myself.
+- Parked, not decided: the `id_token_hint` travelling in the logout URL; what Strict means for someone arriving from an emailed link; letting the Next.js server create the session cookie (BFF style).
+- Frontend visuals reuse the "Library Buckram" direction from slice 1; I didn't redesign anything.
