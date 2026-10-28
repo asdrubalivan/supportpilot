@@ -43,14 +43,14 @@ def take_login_attempt(state: str) -> str | None:
 
 
 def create_session(
-    customer_id: int, access_token: str, refresh_token: str, access_expires_at: datetime
+    customer_id: int, access_token: str, refresh_token: str, id_token: str, access_expires_at: datetime
 ) -> str:
     session_id = secrets.token_urlsafe(32)
     with connect() as conn:
         conn.execute(
-            "INSERT INTO sessions (id, customer_id, access_token, refresh_token, access_expires_at, expires_at)"
-            " VALUES (%s, %s, %s, %s, %s, now() + make_interval(secs => %s))",
-            (session_id, customer_id, access_token, refresh_token, access_expires_at,
+            "INSERT INTO sessions (id, customer_id, access_token, refresh_token, id_token, access_expires_at, expires_at)"
+            " VALUES (%s, %s, %s, %s, %s, %s, now() + make_interval(secs => %s))",
+            (session_id, customer_id, access_token, refresh_token, id_token, access_expires_at,
              config.SESSION_MAX_AGE_SECONDS),
         )
     return session_id
@@ -78,6 +78,9 @@ def update_tokens(session_id: str, access_token: str, refresh_token: str, access
         )
 
 
-def delete_session(session_id: str) -> None:
+def delete_session(session_id: str) -> str | None:
+    """End the session on the spot. Returns its ID token (for the Keycloak logout), or None if it
+    didn't exist."""
     with connect() as conn:
-        conn.execute("DELETE FROM sessions WHERE id = %s", (session_id,))
+        row = conn.execute("DELETE FROM sessions WHERE id = %s RETURNING id_token", (session_id,)).fetchone()
+    return row["id_token"] if row else None

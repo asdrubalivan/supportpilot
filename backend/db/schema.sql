@@ -65,6 +65,8 @@ CREATE TABLE sessions (
     customer_id       integer NOT NULL REFERENCES customers (id),
     access_token      text NOT NULL,
     refresh_token     text NOT NULL,
+    -- Kept only to tell Keycloak which session to end at logout (id_token_hint); never trusted.
+    id_token          text NOT NULL,
     access_expires_at timestamptz NOT NULL,
     expires_at        timestamptz NOT NULL,
     created_at        timestamptz NOT NULL DEFAULT now()

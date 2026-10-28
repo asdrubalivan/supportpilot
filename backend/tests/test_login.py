@@ -61,7 +61,9 @@ class FakeKeycloak:
         # Like Keycloak, give every token a unique id; otherwise two minted in one second are identical.
         access = self.issuer.mint(self.sub, jti=f"token-{len(self.calls)}", **self.extra)
         return FakeResponse(
-            200, {"access_token": access, "refresh_token": refresh_token, "expires_in": expires_in}
+            200,
+            {"access_token": access, "refresh_token": refresh_token, "id_token": f"id-token-{self.sub}",
+             "expires_in": expires_in},
         )
 
 
@@ -128,6 +130,8 @@ def test_login_sends_the_browser_to_keycloak_with_state_and_pkce(client, fake):
     assert query["redirect_uri"] == config.OIDC_REDIRECT_URI
     assert query["code_challenge_method"] == "S256"
     assert client.cookies.get(config.LOGIN_COOKIE) == query["state"]
+    login_cookie = next(h for h in response.headers.get_list("set-cookie") if h.startswith(config.LOGIN_COOKIE))
+    assert "samesite=lax" in login_cookie.lower()  # must stay Lax: Keycloak starts the callback navigation
     with connect() as conn:
         stored = conn.execute("SELECT code_verifier FROM login_attempts WHERE state = %s", (query["state"],)).fetchone()
     # Only the hash of the verifier went to Keycloak, never the verifier itself.
@@ -140,7 +144,7 @@ def test_successful_login_creates_a_session_cookie(client, fake, subs):
     assert response.status_code == 303
     assert response.headers["location"] == config.FRONTEND_URL
     cookie = next(h for h in response.headers.get_list("set-cookie") if h.startswith(config.SESSION_COOKIE))
-    assert "httponly" in cookie.lower() and "samesite=lax" in cookie.lower()
+    assert "httponly" in cookie.lower() and "samesite=strict" in cookie.lower()
     session_id = client.cookies.get(config.SESSION_COOKIE)
     # The cookie is only a key: no token inside it, and the tokens are in the table.
     assert "eyJ" not in session_id
@@ -261,12 +265,52 @@ def test_failed_renewal_ends_the_session(client, fake, subs):
     assert session_rows(ADA) == []
 
 
-def test_logout_deletes_the_session_on_the_server(client, fake, subs):
+def test_logout_deletes_the_session_and_sends_the_browser_to_keycloak(client, fake, subs):
     log_in(client, fake, subs[ADA])
     session_id = client.cookies.get(config.SESSION_COOKIE)
 
-    assert client.post("/auth/logout").status_code == 204
+    response = client.post("/auth/logout")
 
+    # Our session is already gone by the time the browser is told to go to Keycloak.
     assert session_rows(ADA) == []
+    assert response.status_code == 303
+    url = urlparse(response.headers["location"])
+    query = {k: v[0] for k, v in parse_qs(url.query).items()}
+    assert f"{url.scheme}://{url.netloc}{url.path}" == config.OIDC_LOGOUT_URL
+    # The ID token tells Keycloak which session to end; without it Keycloak asks the user to confirm.
+    assert query == {
+        "client_id": config.OIDC_CLIENT_ID,
+        "post_logout_redirect_uri": config.POST_LOGOUT_REDIRECT_URI,
+        "id_token_hint": f"id-token-{subs[ADA]}",
+    }
+    assert client.cookies.get(config.SESSION_COOKIE) is None
     client.cookies.set(config.SESSION_COOKIE, session_id)  # a copied cookie is worthless now
     assert client.get("/me").status_code == 401
+
+
+def test_logout_without_a_session_still_ends_keycloaks_session(client):
+    # Our session may have expired while Keycloak's is still open; the user must still be able to sign out.
+    response = client.post("/auth/logout")
+
+    assert response.status_code == 303
+    query = parse_qs(urlparse(response.headers["location"]).query)
+    assert "id_token_hint" not in query
+    assert query["post_logout_redirect_uri"] == [config.POST_LOGOUT_REDIRECT_URI]
+
+
+def test_logout_is_post_only(client):
+    # A GET would let any page log the user out with an <img src=".../auth/logout">.
+    assert client.get("/auth/logout").status_code == 405
+
+
+def test_login_without_an_id_token_gives_no_session(client, fake, subs, monkeypatch):
+    original = fake._tokens
+    monkeypatch.setattr(
+        fake, "_tokens",
+        lambda *a: FakeResponse(200, {k: v for k, v in original(*a).body.items() if k != "id_token"}),
+    )
+
+    response = log_in(client, fake, subs[ADA])
+
+    assert "login_error" in response.headers["location"]
+    assert session_rows(ADA) == []

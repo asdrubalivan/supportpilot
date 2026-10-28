@@ -6,7 +6,7 @@ Browser -> backend travels as an opaque session cookie; backend -> MCP as the se
 import secrets
 from datetime import datetime, timedelta, timezone
 
-from fastapi import Depends, FastAPI, HTTPException, Request, Response
+from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
@@ -56,6 +56,8 @@ def start_login() -> RedirectResponse:
     sessions.save_login_attempt(state, verifier)
     response = RedirectResponse(login.authorization_url(state, challenge), status_code=303)
     # Binds this login to this browser: the callback only accepts a state that this browser started.
+    # Lax, not Strict: the callback is a navigation that Keycloak starts, and with Keycloak on another
+    # site (any real deployment) a Strict cookie would not be sent and every login would be refused.
     response.set_cookie(
         config.LOGIN_COOKIE, state, max_age=config.LOGIN_ATTEMPT_TTL_SECONDS, path=LOGIN_COOKIE_PATH,
         httponly=True, samesite="lax", secure=config.COOKIE_SECURE,
@@ -80,7 +82,7 @@ def finish_login(request: Request, code: str | None = None, state: str | None = 
         tokens = login.exchange_code(code, verifier)
         customer_id = link_identity(verify_token(tokens.access_token))
         session_id = sessions.create_session(
-            customer_id, tokens.access_token, tokens.refresh_token, tokens.access_expires_at
+            customer_id, tokens.access_token, tokens.refresh_token, tokens.id_token, tokens.access_expires_at
         )
     except (login.LoginError, AuthError):
         destination = f"{config.FRONTEND_URL}/?login_error=1"
@@ -88,18 +90,24 @@ def finish_login(request: Request, code: str | None = None, state: str | None = 
     response = RedirectResponse(destination, status_code=303)
     response.delete_cookie(config.LOGIN_COOKIE, path=LOGIN_COOKIE_PATH)
     if session_id:
+        # Strict: the browser attaches it only to requests started by our own site. The frontend and the
+        # backend are the same site (localhost; ports don't count), so the page's calls to /me and /chat
+        # still carry it. It would stop doing so if they moved to different sites.
         response.set_cookie(
             config.SESSION_COOKIE, session_id, max_age=config.SESSION_MAX_AGE_SECONDS, path="/",
-            httponly=True, samesite="lax", secure=config.COOKIE_SECURE,
+            httponly=True, samesite="strict", secure=config.COOKIE_SECURE,
         )
     return response
 
 
-@app.post("/auth/logout", status_code=204)
-def logout(request: Request) -> Response:
-    if session_id := request.cookies.get(config.SESSION_COOKIE):
-        sessions.delete_session(session_id)
-    response = Response(status_code=204)
+@app.post("/auth/logout")
+def logout(request: Request) -> RedirectResponse:
+    # Our session goes first: once the browser is on Keycloak we may never hear from it again,
+    # and a half-finished logout must not leave our session open.
+    session_id = request.cookies.get(config.SESSION_COOKIE)
+    id_token = sessions.delete_session(session_id) if session_id else None
+    # POST, not GET, so another site can't log a user out with an <img>. The 303 turns it into a GET.
+    response = RedirectResponse(login.logout_url(id_token), status_code=303)
     response.delete_cookie(config.SESSION_COOKIE, path="/")
     return response
 

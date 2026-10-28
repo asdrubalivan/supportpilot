@@ -25,6 +25,7 @@ class Tokens:
     access_token: str
     refresh_token: str
     access_expires_at: datetime
+    id_token: str = ""  # only the code exchange returns one we keep; see logout_url
 
 
 def new_pkce() -> tuple[str, str]:
@@ -64,16 +65,33 @@ def _token_request(data: dict[str, str], fallback_refresh_token: str | None = No
         access_token=body["access_token"],
         refresh_token=refresh_token,
         access_expires_at=datetime.now(timezone.utc) + timedelta(seconds=body["expires_in"]),
+        id_token=body.get("id_token", ""),
     )
 
 
 def exchange_code(code: str, code_verifier: str) -> Tokens:
-    return _token_request({
+    tokens = _token_request({
         "grant_type": "authorization_code",
         "code": code,
         "redirect_uri": config.OIDC_REDIRECT_URI,
         "code_verifier": code_verifier,
     })
+    if not tokens.id_token:
+        raise LoginError("Token endpoint returned no ID token.")
+    return tokens
+
+
+def logout_url(id_token: str | None) -> str:
+    """Where to send the browser to end Keycloak's SSO session (RP-initiated logout).
+
+    Only the browser carries Keycloak's session cookie, so the backend can't end that session by
+    calling Keycloak; the browser has to go there. With the ID token as a hint Keycloak knows which
+    session to end and goes straight back to us; without it, it asks the user to confirm first.
+    """
+    params = {"client_id": config.OIDC_CLIENT_ID, "post_logout_redirect_uri": config.POST_LOGOUT_REDIRECT_URI}
+    if id_token:
+        params["id_token_hint"] = id_token
+    return f"{config.OIDC_LOGOUT_URL}?{urlencode(params)}"
 
 
 def refresh(refresh_token: str) -> Tokens:
