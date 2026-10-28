@@ -21,8 +21,6 @@ EVALS_DIR = config.REPO_ROOT / "evals"
 RESULTS_DIR = EVALS_DIR / "results"
 K_VALUES = [1, 2, 4, 8]
 MODES = ["vector", "hybrid"]
-# What policies/returns.md says. Only used to turn days_since_delivery into days_over_window in the checks.
-RETURN_WINDOW_DAYS = 30
 
 
 def load_cases() -> list[dict]:
@@ -92,7 +90,8 @@ def order_facts(case: dict) -> dict[str, int]:
     """
     order = get_order(case["order_id"], case["customer_id"])
     days = order.days_since_delivery
-    return {"days_since_delivery": days, "days_over_window": days - RETURN_WINDOW_DAYS}
+    left = config.RETURN_WINDOW_DAYS - days
+    return {"days_since_delivery": days, "days_left_in_window": left, "days_over_window": -left}
 
 
 def check_answer(text: str, case: dict) -> bool:

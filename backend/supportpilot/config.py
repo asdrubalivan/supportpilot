@@ -18,6 +18,10 @@ CHAT_MODEL = os.getenv("CHAT_MODEL", "qwen3:8b")
 # LlamaIndex prefixes the table name with "data_", so the real table is data_policy_chunks.
 POLICY_TABLE = "policy_chunks"
 
+# The return window in days. policies/returns.md is the source of truth; tests/test_evals.py fails if
+# the two disagree. It lives here only so get_order can hand the agent the subtraction already done.
+RETURN_WINDOW_DAYS = 30
+
 MCP_PORT = int(os.getenv("MCP_PORT", "8001"))
 MCP_URL = os.getenv("MCP_URL", f"http://127.0.0.1:{MCP_PORT}/mcp")
 

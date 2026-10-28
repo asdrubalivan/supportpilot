@@ -36,6 +36,9 @@ class Order(BaseModel):
     delivered_at: datetime | None
     # Computed in SQL so the LLM never does date arithmetic.
     days_since_delivery: int | None
+    # RETURN_WINDOW_DAYS - days_since_delivery, so the agent reads it instead of subtracting.
+    # Negative: the window closed that many days ago.
+    return_window_days_left: int | None
     items: list[OrderItem]
 
 
@@ -79,7 +82,12 @@ def get_order(order_id: int, customer_id: int) -> Order | None:
             (order_id,),
         ).fetchall()
 
-    return Order(**order, items=[OrderItem(**item) for item in items])
+    days = order["days_since_delivery"]
+    return Order(
+        **order,
+        return_window_days_left=None if days is None else config.RETURN_WINDOW_DAYS - days,
+        items=[OrderItem(**item) for item in items],
+    )
 
 
 def get_latest_order(customer_id: int) -> Order | None:
