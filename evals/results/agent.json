@@ -71,7 +71,7 @@
       "30"
     ],
     "must_not_include": [],
-    "answer": "The return window for your order is 30 days from the delivery date, which was September 16, 2026. Since it is now October 26, 2026, and 40 days have passed since delivery, you are no longer within the return window [returns.md#return-window]. \n\nYou cannot return this order as it is outside the allowed return period.",
+    "answer": "The return window for your order is 30 days from the delivery date, which was September 17, 2026. Since it is now October 27, 2026, you are 41 days past the return window and cannot return the order [returns.md#return-window].",
     "citations": [
       "returns.md#return-window"
     ],
@@ -134,10 +134,9 @@
     "must_not_include": [
       "can be returned"
     ],
-    "answer": "The signed Hemingway book (The Old Man and the Sea (signed)) from order 1235 cannot be returned because signed copies are non-returnable items [returns.md#non-returnable-items]. Additionally, the book was delivered 10 days ago, which is beyond the 7-day window for damaged books [returns.md#damaged-books].",
+    "answer": "The signed Hemingway book (The Old Man and the Sea (signed)) from order 1235 cannot be returned because signed copies are non-returnable items [returns.md#non-returnable-items]. Additionally, the book was delivered on 2026-10-17, and it is now 11 days since delivery [order 1235].",
     "citations": [
-      "returns.md#non-returnable-items",
-      "returns.md#damaged-books"
+      "returns.md#non-returnable-items"
     ],
     "invalid_citations": [],
     "tools_called": [
@@ -177,7 +176,7 @@
     ],
     "answer_pass": true,
     "tools_pass": true,
-    "citation_precision": 0.5,
+    "citation_precision": 1.0,
     "cited_expected": true,
     "abstention_pass": null
   },
@@ -600,10 +599,11 @@
       "shipped"
     ],
     "must_not_include": [],
-    "answer": "Your order 1237 has been shipped via standard shipping. The tracking information is available in your account, and the delivery date will be shown once the order is delivered [shipping.md#tracking]. The shipping cost was $4.99 [shipping.md#shipping-options].",
+    "answer": "Your order 1237 has been shipped via standard shipping [shipping.md#shipping-options]. The tracking information is available in your account, and the delivery date will be shown once the order is delivered [shipping.md#tracking]. The shipping cost was $4.99 [shipping.md#shipping-options], and your order includes a discount applied for the \"self-help\" section [shipping.md#free-shipping].",
     "citations": [
+      "shipping.md#shipping-options",
       "shipping.md#tracking",
-      "shipping.md#shipping-options"
+      "shipping.md#free-shipping"
     ],
     "invalid_citations": [],
     "tools_called": [
@@ -1168,7 +1168,7 @@
     ],
     "must_include": [],
     "must_not_include": [],
-    "answer": "Your most recent order (ID 1237) was shipped on 2026-10-24 and has not yet been delivered. Since the delivery date is required to determine the return window, and it is not yet known, you cannot return the order at this time. Once the delivery date is available, you can return the book within 30 days of that date [returns.md#return-window].",
+    "answer": "Your most recent order (ID 1237) was shipped on 2026-10-25, and it has not yet been delivered. Since the delivery date is required to determine the return window, and it is not yet known, you cannot return the order at this time. Once the delivery date is available, you can return the book within 30 days of that date [returns.md#return-window].",
     "citations": [
       "returns.md#return-window"
     ],
