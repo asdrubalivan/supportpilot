@@ -16,6 +16,7 @@ from supportpilot.agent import answer
 from supportpilot.orders import get_order
 from supportpilot.retrieval import build_retriever
 from supportpilot.test_issuer import TestIssuer, linked_subjects, mcp_server
+from supportpilot.tracing import setup_tracing
 
 EVALS_DIR = config.REPO_ROOT / "evals"
 RESULTS_DIR = EVALS_DIR / "results"
@@ -171,6 +172,7 @@ if __name__ == "__main__":
     elif command == "robustness":
         run_robustness()
     elif command == "agent":
+        setup_tracing()
         asyncio.run(run_agent(load_cases()))
     else:
         sys.exit(f"Unknown command: {command}")

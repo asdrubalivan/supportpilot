@@ -15,6 +15,9 @@ from supportpilot import config, login, sessions
 from supportpilot.agent import AgentResult, answer
 from supportpilot.auth import AuthError, link_identity, verify_token
 from supportpilot.sessions import Session
+from supportpilot.tracing import setup_tracing
+
+setup_tracing()
 
 app = FastAPI(title="SupportPilot")
 app.add_middleware(
