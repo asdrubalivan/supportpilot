@@ -174,3 +174,5 @@ The demo GIF is rebuilt from the running app: `cd demo && pnpm install && pnpm c
 ## Stack
 
 FastAPI · MCP (Python SDK, Streamable HTTP) · Keycloak (OIDC) · LlamaIndex · Postgres + pgvector · Ollama (`qwen3:8b`, `nomic-embed-text`) · Next.js.
+
+Built by [Asdrúbal Suárez](https://asdrubalivan.com).
